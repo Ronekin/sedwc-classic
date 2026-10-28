@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/Kust_1.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Sircle_Shadow.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+// Параметры эффекта
+uniform float amplitude : hint_range(0.0, 50.0) = 10.0;   // амплитуда (пиксели)
+uniform float frequency : hint_range(0.1, 5.0)  = 1.5;    // частота волн (Гц)
+uniform float speed    : hint_range(0.0, 5.0)  = 1.0;    // скорость
+uniform vec2 direction  = vec2(1.0, 0.5);      // направление волны
+uniform float pivot_y  : hint_range(0.0, 1.0) = 0.3;   // точка опоры (0=низ, 1=верх)
+uniform float falloff   : hint_range(0.0, 2.0) = 1.0;    // плавность перехода
+
+void fragment() {
+    vec2 uv = UV;
+    float time = TIME;
+
+    // Вычисляем базовое смещение (как раньше)
+    float wave = sin(
+        dot(uv * direction, vec2(1.0)) * frequency +
+        time * speed
+    ) * amplitude;
+
+    // Модулируем смещение по вертикали:
+    // - внизу (y < pivot_y) → смещение = 0
+    // - вверху (y > pivot_y) → полное смещение
+    float y_offset = pivot_y - uv.y;
+    float strength = smoothstep(0.0, falloff, y_offset);
+
+    // Применяем модулированное смещение
+    vec2 offset_uv = uv + vec2(wave, wave) * SCREEN_PIXEL_SIZE * strength;
+
+    // Получаем цвет с смещённых координат
+    vec4 color = texture(TEXTURE, offset_uv);
+    COLOR = color;
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/amplitude = 17.105
+shader_param/frequency = 1.5
+shader_param/speed = 2.105
+shader_param/direction = Vector2( 2, 0 )
+shader_param/pivot_y = 1.0
+shader_param/falloff = 1.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2( 1, -24 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+material = SubResource( 6 )
+z_index = 2
+texture = ExtResource( 1 )
+offset = Vector2( 1, -18 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 0, 8 )
+scale = Vector2( 0.594203, 1.48026 )
+z_index = -1
+texture = ExtResource( 2 )

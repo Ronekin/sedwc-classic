@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BarrageTheWorld.mp3-76a34b3f4babed08d93fba1c11ae871d.mp3str"
+
+[deps]
+
+source_file="res://Music/BarrageTheWorld.mp3"
+dest_files=[ "res://.import/BarrageTheWorld.mp3-76a34b3f4babed08d93fba1c11ae871d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

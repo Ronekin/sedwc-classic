@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EmptyPunch.mp3-beb0f9e087b8cad2b54af0f224d58cc3.mp3str"
+
+[deps]
+
+source_file="res://Music/EmptyPunch.mp3"
+dest_files=[ "res://.import/EmptyPunch.mp3-beb0f9e087b8cad2b54af0f224d58cc3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

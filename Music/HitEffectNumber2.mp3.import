@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HitEffectNumber2.mp3-8e556ecbbb2f03dcfc9bf1f3e5b38137.mp3str"
+
+[deps]
+
+source_file="res://Music/HitEffectNumber2.mp3"
+dest_files=[ "res://.import/HitEffectNumber2.mp3-8e556ecbbb2f03dcfc9bf1f3e5b38137.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

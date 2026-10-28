@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ArrowEffectActivate.mp3-86347906774f4c1dcc508bafe1218d16.mp3str"
+
+[deps]
+
+source_file="res://Music/ArrowEffectActivate.mp3"
+dest_files=[ "res://.import/ArrowEffectActivate.mp3-86347906774f4c1dcc508bafe1218d16.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

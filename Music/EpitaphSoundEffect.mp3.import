@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EpitaphSoundEffect.mp3-36fc845d3c0f057e282725f6fa6ccd68.mp3str"
+
+[deps]
+
+source_file="res://Music/EpitaphSoundEffect.mp3"
+dest_files=[ "res://.import/EpitaphSoundEffect.mp3-36fc845d3c0f057e282725f6fa6ccd68.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

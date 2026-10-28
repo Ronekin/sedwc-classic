@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ZaWarudoEffectTC.mp3-a12c4a0b72b06cead03605932f2f3b0f.mp3str"
+
+[deps]
+
+source_file="res://Music/ZaWarudoEffectTC.mp3"
+dest_files=[ "res://.import/ZaWarudoEffectTC.mp3-a12c4a0b72b06cead03605932f2f3b0f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

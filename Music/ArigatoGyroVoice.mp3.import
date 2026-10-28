@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ArigatoGyroVoice.mp3-12e5e35dd15ec735d36e93a0d955eacd.mp3str"
+
+[deps]
+
+source_file="res://Music/ArigatoGyroVoice.mp3"
+dest_files=[ "res://.import/ArigatoGyroVoice.mp3-12e5e35dd15ec735d36e93a0d955eacd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

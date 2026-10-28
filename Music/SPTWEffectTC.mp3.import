@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SPTWEffectTC.mp3-835c1f130587988391dc972900933fd5.mp3str"
+
+[deps]
+
+source_file="res://Music/SPTWEffectTC.mp3"
+dest_files=[ "res://.import/SPTWEffectTC.mp3-835c1f130587988391dc972900933fd5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EchoesSummon.mp3-f628cc08156a83b93aa874e8723b508a.mp3str"
+
+[deps]
+
+source_file="res://Music/EchoesSummon.mp3"
+dest_files=[ "res://.import/EchoesSummon.mp3-f628cc08156a83b93aa874e8723b508a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

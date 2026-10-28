@@ -1,0 +1,209 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/BackGroundMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/UI/TechnicType.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/TechicSelect.gd" type="Script" id=4]
+[ext_resource path="res://Textures/StandSelectPanelMini.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Podrobnosti_Del.png" type="Texture" id=6]
+[ext_resource path="res://Textures/UI/TechnicSkins.png" type="Texture" id=7]
+[ext_resource path="res://MoneyIndicator.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[node name="TechicSelect" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Center" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = -280.0
+margin_bottom = -140.0
+
+[node name="BG" parent="Center" instance=ExtResource( 2 )]
+margin_left = -27.0
+margin_top = -18.0
+margin_right = 613.0
+margin_bottom = 342.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StandSelectPanelMini" type="Sprite" parent="Center"]
+position = Vector2( 105, 137 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="StandText" type="Label" parent="Center"]
+margin_left = -1.0
+margin_top = -12.0
+margin_right = 320.0
+margin_bottom = 19.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "техника"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TextInfo" type="Label" parent="Center"]
+margin_left = 184.0
+margin_top = 64.0
+margin_right = 392.0
+margin_bottom = 95.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 1 )
+text = "техника: спин"
+valign = 1
+autowrap = true
+
+[node name="TextInfo3" type="Label" parent="Center"]
+margin_left = 184.0
+margin_top = 88.0
+margin_right = 392.0
+margin_bottom = 119.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 1 )
+text = "скин: золотой"
+valign = 1
+autowrap = true
+
+[node name="TextInfo2" type="Label" parent="Center"]
+margin_left = 152.0
+margin_top = 200.0
+margin_right = 320.0
+margin_bottom = 231.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "скины:"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Buy" type="Label" parent="Center"]
+margin_left = 448.0
+margin_top = 168.0
+margin_right = 616.0
+margin_bottom = 199.0
+custom_fonts/font = SubResource( 1 )
+text = "Нажмите еще 2 раза чтобы приобрести"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TypeIcon" type="Sprite" parent="Center"]
+position = Vector2( 109, 137 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 2
+frame = 1
+
+[node name="SkinIcon" type="Sprite" parent="Center"]
+position = Vector2( 121, 133 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+hframes = 3
+frame = 2
+
+[node name="Skins" type="GridContainer" parent="Center"]
+margin_left = 232.0
+margin_top = 296.0
+margin_right = 402.0
+margin_bottom = 336.0
+custom_constants/hseparation = 85
+columns = 3
+
+[node name="Classic" type="Control" parent="Center/Skins"]
+
+[node name="StandSelectPanelMini" type="Sprite" parent="Center/Skins/Classic"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="TechnicSkins" type="Sprite" parent="Center/Skins/Classic"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+hframes = 3
+
+[node name="ButtonClassicSpin" type="TouchScreenButton" parent="Center/Skins/Classic"]
+position = Vector2( -30, -31 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 2 )
+
+[node name="Gold" type="Control" parent="Center/Skins"]
+margin_left = 85.0
+margin_right = 85.0
+
+[node name="StandSelectPanelMini" type="Sprite" parent="Center/Skins/Gold"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="TechnicSkins" type="Sprite" parent="Center/Skins/Gold"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+hframes = 3
+frame = 1
+
+[node name="ButtonGoldSpin" type="TouchScreenButton" parent="Center/Skins/Gold"]
+position = Vector2( -31, -31 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 3 )
+
+[node name="Candy" type="Control" parent="Center/Skins"]
+margin_left = 170.0
+margin_right = 170.0
+
+[node name="StandSelectPanelMini" type="Sprite" parent="Center/Skins/Candy"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="TechnicSkins" type="Sprite" parent="Center/Skins/Candy"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+hframes = 3
+frame = 2
+
+[node name="ButtonCandySpin" type="TouchScreenButton" parent="Center/Skins/Candy"]
+position = Vector2( -30, -31 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 4 )
+
+[node name="Control" parent="Center" instance=ExtResource( 8 )]
+margin_left = -16.0
+margin_top = -56.0
+margin_right = -16.0
+margin_bottom = -56.0
+rect_scale = Vector2( 2, 2 )
+money_indicators = {
+"euro": false,
+"money": false,
+"s_coins": true
+}
+
+[node name="Right" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -325, 71 )
+
+[node name="LeaveButton" type="TouchScreenButton" parent="Right"]
+position = Vector2( -59, 9 )
+scale = Vector2( 2.6, 2.6 )
+normal = ExtResource( 6 )
+
+[connection signal="pressed" from="Center/Skins/Classic/ButtonClassicSpin" to="." method="_on_ButtonClassicSpin_pressed"]
+[connection signal="pressed" from="Center/Skins/Gold/ButtonGoldSpin" to="." method="_on_ButtonGoldSpin_pressed"]
+[connection signal="pressed" from="Center/Skins/Candy/ButtonCandySpin" to="." method="_on_ButtonCandySpin_pressed"]
+[connection signal="pressed" from="Right/LeaveButton" to="." method="_on_LeaveButton_pressed"]

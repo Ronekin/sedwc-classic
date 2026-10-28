@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Textures/NPC_sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Outline.tres" type="Shader" id=3]
+[ext_resource path="res://Textures/ShadowNPC.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=295]
+shader = ExtResource( 3 )
+shader_param/width = 1.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23, 49 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 20 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "CollisionPlayer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "NonCollisionPlayer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2( 0, -1 )
+script = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, 5 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 295 )
+position = Vector2( 1, -42 )
+z_index = 2
+texture = ExtResource( 1 )
+hframes = 13
+vframes = 3
+frame = 25
+
+[node name="Area2D" type="Area2D" parent="." groups=["Gyro", "Jotaro"]]
+visible = false
+position = Vector2( 0, 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Gyro", "Jotaro"]]
+position = Vector2( 2, -45 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -14 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "NonCollisionPlayer"
+anims/CollisionPlayer = SubResource( 4 )
+anims/NonCollisionPlayer = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

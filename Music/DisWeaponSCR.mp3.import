@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DisWeaponSCR.mp3-1d56dad17b8e112a3550132e591d1269.mp3str"
+
+[deps]
+
+source_file="res://Music/DisWeaponSCR.mp3"
+dest_files=[ "res://.import/DisWeaponSCR.mp3-1d56dad17b8e112a3550132e591d1269.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

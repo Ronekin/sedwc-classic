@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Crucified_theme.mp3-2d3e38bd642fe1d81d5f1a1b4058aedb.mp3str"
+
+[deps]
+
+source_file="res://Music/Crucified_theme.mp3"
+dest_files=[ "res://.import/Crucified_theme.mp3-2d3e38bd642fe1d81d5f1a1b4058aedb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

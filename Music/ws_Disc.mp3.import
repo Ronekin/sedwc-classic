@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ws_Disc.mp3-700a381493547111d068014832b898ae.mp3str"
+
+[deps]
+
+source_file="res://Music/ws_Disc.mp3"
+dest_files=[ "res://.import/ws_Disc.mp3-700a381493547111d068014832b898ae.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

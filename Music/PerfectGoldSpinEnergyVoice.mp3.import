@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PerfectGoldSpinEnergyVoice.mp3-f4ba1110674f76e6a9f8a1e30cfd5a36.mp3str"
+
+[deps]
+
+source_file="res://Music/PerfectGoldSpinEnergyVoice.mp3"
+dest_files=[ "res://.import/PerfectGoldSpinEnergyVoice.mp3-f4ba1110674f76e6a9f8a1e30cfd5a36.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

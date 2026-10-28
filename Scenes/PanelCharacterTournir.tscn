@@ -1,0 +1,307 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Textures/GeneralMenuPanel.png" type="Texture" id=1]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Textures/PanelInventory.png" type="Texture" id=3]
+[ext_resource path="res://Textures/ResetButton.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Items.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/PanelCharacterTournir.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/your_stand.gd" type="Script" id=7]
+[ext_resource path="res://Textures/TechnicSelectIconSheet.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/TournirFloor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/ExpPlayerBar.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="PanelCharacterTournir" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -640.0
+margin_bottom = -360.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -166.0 ]
+}
+
+[node name="GeneralMenuPanel" type="Sprite" parent="."]
+position = Vector2( 6, 11 )
+rotation = 1.5708
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+
+[node name="your_hp" type="Label" parent="."]
+modulate = Color( 0.686275, 0.807843, 1, 1 )
+margin_left = -249.0
+margin_top = -232.0
+margin_right = -113.0
+margin_bottom = -190.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "ваше здоровье: 120"
+align = 1
+valign = 1
+
+[node name="change" type="Label" parent="."]
+margin_left = 40.0
+margin_top = -294.0
+margin_right = 176.0
+margin_bottom = -252.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "1  = 2 хп"
+align = 1
+valign = 1
+
+[node name="value_pizza" type="Label" parent="."]
+margin_left = 104.0
+margin_top = -232.0
+margin_right = 240.0
+margin_bottom = -190.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = ":"
+valign = 1
+
+[node name="your_stand" type="Label" parent="."]
+modulate = Color( 0.686275, 0.807843, 1, 1 )
+margin_left = -248.0
+margin_top = -168.0
+margin_right = -80.0
+margin_bottom = -156.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "ваш стенд: tusk act 1"
+valign = 2
+script = ExtResource( 7 )
+
+[node name="your_technic" type="Label" parent="."]
+modulate = Color( 0.686275, 0.807843, 1, 1 )
+margin_left = -248.0
+margin_top = -120.0
+margin_right = -40.0
+margin_bottom = -78.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "ваша техника: perfect spin"
+valign = 1
+
+[node name="TechnicSelectIconSheet" type="Sprite" parent="your_technic"]
+position = Vector2( 223.5, 23 )
+texture = ExtResource( 8 )
+hframes = 4
+
+[node name="tournir_lvl" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 0.913725, 0.427451, 1 )
+margin_left = -248.0
+margin_top = -26.0
+margin_right = -72.0
+margin_bottom = -14.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "ваш ур. в турнире: 99"
+valign = 1
+
+[node name="tournir_record" type="Label" parent="."]
+modulate = Color( 1, 0.913725, 0.427451, 1 )
+margin_left = -248.0
+margin_top = -56.0
+margin_bottom = -44.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "ваш рекордный ур. в турнире: 99"
+valign = 1
+
+[node name="ALL_rewards" type="Label" parent="."]
+visible = false
+margin_left = -248.0
+margin_top = 63.0
+margin_bottom = 105.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "награда: 100000$"
+align = 1
+valign = 1
+
+[node name="Arrow" type="Sprite" parent="ALL_rewards"]
+position = Vector2( 38, 50.5 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+hframes = 7
+
+[node name="count" type="Label" parent="ALL_rewards/Arrow"]
+margin_left = -22.3333
+margin_top = -17.6667
+margin_right = 1.66666
+margin_bottom = 24.3333
+rect_scale = Vector2( 0.75, 0.75 )
+custom_fonts/font = SubResource( 1 )
+text = "99x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Disk" type="Sprite" parent="ALL_rewards"]
+position = Vector2( 82, 46.5 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+hframes = 7
+frame = 4
+
+[node name="count" type="Label" parent="ALL_rewards/Disk"]
+margin_left = -16.0
+margin_top = -10.0
+margin_right = 8.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "99x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Broken_disk" type="Sprite" parent="ALL_rewards"]
+position = Vector2( 130, 46.5 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+hframes = 7
+frame = 5
+
+[node name="count" type="Label" parent="ALL_rewards/Broken_disk"]
+margin_left = -17.0
+margin_top = -10.0
+margin_right = 7.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "99x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Roka" type="Sprite" parent="ALL_rewards"]
+position = Vector2( 186, 46.5 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+hframes = 7
+frame = 2
+
+[node name="count" type="Label" parent="ALL_rewards/Roka"]
+margin_left = -19.0
+margin_top = -10.0
+margin_right = 5.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "99x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Pizza" type="Sprite" parent="ALL_rewards"]
+position = Vector2( 162, 42.5 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+offset = Vector2( 42, 2 )
+hframes = 7
+frame = 6
+
+[node name="count" type="Label" parent="ALL_rewards/Pizza"]
+margin_left = 23.0
+margin_top = -8.0
+margin_right = 47.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "99x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Collect_reward" type="TouchScreenButton" parent="."]
+position = Vector2( 3, 258 )
+scale = Vector2( 1.88158, 3 )
+normal = ExtResource( 3 )
+
+[node name="Name" type="Label" parent="Collect_reward"]
+margin_left = -36.6713
+margin_top = 0.666653
+margin_right = 139.328
+margin_bottom = 19.6667
+rect_scale = Vector2( 1.3, 0.8 )
+custom_fonts/font = SubResource( 2 )
+text = "выйти"
+align = 1
+valign = 1
+
+[node name="Heal" type="TouchScreenButton" parent="."]
+position = Vector2( 216, -216 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+
+[node name="PizzaValue" type="Sprite" parent="."]
+position = Vector2( 136, -254 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+hframes = 7
+frame = 6
+
+[node name="PizzaNotV" type="Sprite" parent="."]
+position = Vector2( 88, -190 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+hframes = 7
+frame = 6
+
+[node name="Stand_storage" type="TouchScreenButton" parent="."]
+position = Vector2( -256, -136 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 3 )
+
+[node name="choose_stand" type="Label" parent="Stand_storage"]
+modulate = Color( 0.662745, 0.741176, 0.796078, 1 )
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 164.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "хранилище стендов"
+align = 1
+valign = 1
+
+[node name="TournirFloor" parent="." instance=ExtResource( 9 )]
+visible = false
+margin_left = 344.0
+margin_top = -360.0
+margin_right = 344.0
+margin_bottom = -360.0
+
+[node name="TextureProgress" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_left = -248.0
+margin_top = -16.0
+margin_right = -96.0
+margin_bottom = 3.0
+rect_scale = Vector2( 2, 2 )
+
+[connection signal="pressed" from="Collect_reward" to="." method="_on_Collect_reward_pressed"]
+[connection signal="pressed" from="Heal" to="." method="_on_Heal_pressed"]
+[connection signal="pressed" from="Stand_storage" to="." method="_on_Stand_storage_pressed"]

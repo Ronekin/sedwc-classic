@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/VoiceMan_1.mp3-87f82be56cd7c61f96e7f2580e9c29a6.mp3str"
+
+[deps]
+
+source_file="res://Music/VoiceMan_1.mp3"
+dest_files=[ "res://.import/VoiceMan_1.mp3-87f82be56cd7c61f96e7f2580e9c29a6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

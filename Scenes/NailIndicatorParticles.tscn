@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Textures/LightParticles.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+max_value = 3.0
+_data = [ Vector2( 0, 2.93182 ), 0.0, -6.82553, 0, 0, Vector2( 1, 0.0511363 ), -9.13091, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 90, 10, 1 )
+flag_disable_z = true
+spread = 90.0
+gravity = Vector3( 0, -10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.01
+scale_curve = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D"]
+modulate = Color( 0.466667, 0.87451, 1, 1 )
+material = SubResource( 1 )
+amount = 20
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )

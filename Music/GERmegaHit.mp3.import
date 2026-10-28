@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GERmegaHit.mp3-3b78c8a57d43e6aef39f6a9fa7a69df0.mp3str"
+
+[deps]
+
+source_file="res://Music/GERmegaHit.mp3"
+dest_files=[ "res://.import/GERmegaHit.mp3-3b78c8a57d43e6aef39f6a9fa7a69df0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,1304 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://Textures/ButtonBG.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/DopButton.gd" type="Script" id=3]
+[ext_resource path="res://Textures/IconDopAttack.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "KD_Armor"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "KD_Barrage_E1"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "KD_Barrage_GE"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "KD_Barrage_SAW"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "KD_Barrage_SCR"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "KD_Barrage_SP"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "KD_Barrage_TW"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "KD_BubbleBeyound_S&W"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "KD_BubbleBeyound_S&W_Restart"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "KD_BubbleBeyound_S&W_Start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 39 ), Vector2( 43, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.509804, 0.509804, 0.509804, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "black_lines"
+} ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "KD_BubbleEyes_S&W"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "KD_Chop_KC"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "KD_Disweapon"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "KD_Epitafia_KC"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "KD_Glush_E1"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "KD_HP_TWOH"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "KD_Health_GE"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "KD_Hole_T2"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "KD_Hole_T4"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "KD_KNIFE_TWOH"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "KD_Knife_TW"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "KD_Knife_TW_Mini"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "KD_Shadow_Knife"
+length = 12.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 12.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 12.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "KD_SpinNail_T1"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "KD_SpinNail_T2"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "KD_SpinNail_T3"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "KD_StarFinger_SP"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "KD_T4_Awakening"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "KD_TWOH_TS"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "KD_Tea_T1"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "KD_Tea_T2"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "KD_Tea_T3"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "KD_Tea_T4"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "KD_TimeErase_KC"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "KD_TimeStop_SP"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "KD_TimeStop_TW"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "KD_Tree_GE"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "KD_Twoh_Light"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "Kd_Counter_T4"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "Mini_bd_T4"
+length = 45.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 42.994, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "kD_OVERWRITE_TWOH"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43, 1 ), Vector2( 43, 39 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.509804, 0.509804, 0.509804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="DopButton" type="TouchScreenButton"]
+normal = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -1
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 46.0
+margin_bottom = 43.0
+color = Color( 0.364706, 0.364706, 0.364706, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="Node2D"]
+margin_left = 5.0
+margin_top = 2.0
+margin_right = 44.0
+margin_bottom = 43.0
+color = Color( 0.364706, 0.364706, 0.364706, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+margin_left = 3.0
+margin_top = 42.0
+margin_right = 46.0
+margin_bottom = 81.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.796078, 0.796078, 0.796078, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+anims/Idle = SubResource( 3 )
+anims/KD_Armor = SubResource( 41 )
+anims/KD_Barrage_E1 = SubResource( 24 )
+anims/KD_Barrage_GE = SubResource( 10 )
+anims/KD_Barrage_SAW = SubResource( 22 )
+anims/KD_Barrage_SCR = SubResource( 42 )
+anims/KD_Barrage_SP = SubResource( 26 )
+anims/KD_Barrage_TW = SubResource( 21 )
+anims/KD_BubbleBeyound_S&W = SubResource( 14 )
+anims/KD_BubbleBeyound_S&W_Restart = SubResource( 23 )
+anims/KD_BubbleBeyound_S&W_Start = SubResource( 15 )
+anims/KD_BubbleEyes_S&W = SubResource( 13 )
+anims/KD_Chop_KC = SubResource( 9 )
+anims/KD_Disweapon = SubResource( 43 )
+anims/KD_Epitafia_KC = SubResource( 20 )
+anims/KD_Glush_E1 = SubResource( 12 )
+anims/KD_HP_TWOH = SubResource( 36 )
+anims/KD_Health_GE = SubResource( 1 )
+anims/KD_Hole_T2 = SubResource( 11 )
+anims/KD_Hole_T4 = SubResource( 32 )
+anims/KD_KNIFE_TWOH = SubResource( 38 )
+anims/KD_Knife_TW = SubResource( 4 )
+anims/KD_Knife_TW_Mini = SubResource( 27 )
+anims/KD_Shadow_Knife = SubResource( 35 )
+anims/KD_SpinNail_T1 = SubResource( 18 )
+anims/KD_SpinNail_T2 = SubResource( 19 )
+anims/KD_SpinNail_T3 = SubResource( 17 )
+anims/KD_StarFinger_SP = SubResource( 30 )
+anims/KD_T4_Awakening = SubResource( 29 )
+anims/KD_TWOH_TS = SubResource( 37 )
+anims/KD_Tea_T1 = SubResource( 5 )
+anims/KD_Tea_T2 = SubResource( 6 )
+anims/KD_Tea_T3 = SubResource( 16 )
+anims/KD_Tea_T4 = SubResource( 31 )
+anims/KD_TimeErase_KC = SubResource( 7 )
+anims/KD_TimeStop_SP = SubResource( 25 )
+anims/KD_TimeStop_TW = SubResource( 8 )
+anims/KD_Tree_GE = SubResource( 28 )
+anims/KD_Twoh_Light = SubResource( 39 )
+anims/Kd_Counter_T4 = SubResource( 34 )
+anims/Mini_bd_T4 = SubResource( 33 )
+anims/RESET = SubResource( 2 )
+anims/kD_OVERWRITE_TWOH = SubResource( 40 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 25, 26 )
+scale = Vector2( 0.95, 0.95 )
+texture = ExtResource( 4 )
+hframes = 15
+vframes = 3
+frame = 40
+
+[connection signal="pressed" from="." to="." method="_on_DopButton_pressed"]
+[connection signal="released" from="." to="." method="_on_DopButton_released"]
+[connection signal="animation_finished" from="Node2D/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

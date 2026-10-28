@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/JoystickV2.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Joustikc_Background.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Joustick_Center.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 55.0
+
+[node name="Control" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -360.0
+margin_bottom = -360.0
+script = ExtResource( 1 )
+
+[node name="Node2D" type="TouchScreenButton" parent="."]
+position = Vector2( 23, 192 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 2 )
+shape = SubResource( 1 )
+shape_visible = false
+
+[node name="JoustickCenter" type="Sprite" parent="Node2D"]
+position = Vector2( 55, 55 )
+texture = ExtResource( 3 )

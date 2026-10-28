@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SayanoraGyro-vocals.mp3-c3337cc7ed0fbba66945e44ea2cfcc9b.mp3str"
+
+[deps]
+
+source_file="res://Music/SayanoraGyro-vocals.mp3"
+dest_files=[ "res://.import/SayanoraGyro-vocals.mp3-c3337cc7ed0fbba66945e44ea2cfcc9b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

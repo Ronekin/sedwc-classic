@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BloodKnifeSound.mp3-23f1f6bf4db10fcf1922753e349e54ac.mp3str"
+
+[deps]
+
+source_file="res://Music/BloodKnifeSound.mp3"
+dest_files=[ "res://.import/BloodKnifeSound.mp3-23f1f6bf4db10fcf1922753e349e54ac.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

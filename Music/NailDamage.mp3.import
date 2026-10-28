@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NailDamage.mp3-081dcbd871e3f725580f2232cec5e6d5.mp3str"
+
+[deps]
+
+source_file="res://Music/NailDamage.mp3"
+dest_files=[ "res://.import/NailDamage.mp3-081dcbd871e3f725580f2232cec5e6d5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

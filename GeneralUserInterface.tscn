@@ -1,0 +1,816 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Scenes/DialogButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/JoystickV2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/QuestButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/MessageLeft.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/BuffsButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/SpinBarLesson.tscn" type="PackedScene" id=6]
+[ext_resource path="res://MoneyIndicator.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/ItemBoxMessage.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/SettingsPhoneButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/SettingsPhoneButton.gd" type="Script" id=10]
+[ext_resource path="res://FPS_Label.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Textures/PanelQuestion.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/RunButton.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Textures/PanelInventory.png" type="Texture" id=15]
+[ext_resource path="res://Textures/Details/JotaroRemember/1.png" type="Texture" id=16]
+[ext_resource path="res://Textures/Details/JotaroRemember/3.png" type="Texture" id=17]
+[ext_resource path="res://Textures/Details/JotaroRemember/2.png" type="Texture" id=18]
+[ext_resource path="res://Textures/GeneralMenuPanel.png" type="Texture" id=19]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=20]
+[ext_resource path="res://Scenes/WorldPanel.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Textures/UI/CentrifugePanel_BG.png" type="Texture" id=22]
+[ext_resource path="res://Textures/UI/WhiteBAR.png" type="Texture" id=23]
+[ext_resource path="res://Textures/UI/WhiteBAR_BG.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/InventoryButton.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/StandActivateButton.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/InventoryFull.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/ActivateItemButton.tscn" type="PackedScene" id=32]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="Animation" id=5]
+resource_name = "Go"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Go"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 336, -180 ), Vector2( 263, 537 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.6, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 394, 226 ), Vector2( 214, 280 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11, 351 ), Vector2( 368, 18 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.2, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 336, -180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 394, 226 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 11, 351 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -42, 700 ), Vector2( -42, 30 ), Vector2( -42, 65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.290196 ) ]
+}
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource( 20 )
+
+[node name="Right_Less" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = -360.0
+
+[node name="MiniGameTreeButton" type="TouchScreenButton" parent="Right_Less"]
+visible = false
+modulate = Color( 1, 1, 1, 0.623529 )
+position = Vector2( 530, 243 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Right_Less/MiniGameTreeButton"]
+margin_left = 7.07693
+margin_top = 4.76923
+margin_right = 79.0769
+margin_bottom = 18.7692
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "мини-игра"
+align = 1
+
+[node name="TrashLootButton" type="TouchScreenButton" parent="Right_Less"]
+visible = false
+modulate = Color( 1, 1, 1, 0.623529 )
+position = Vector2( 530, 243 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Right_Less/TrashLootButton"]
+margin_left = 7.07693
+margin_top = 4.76923
+margin_right = 79.0769
+margin_bottom = 18.7692
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "Обыскать"
+align = 1
+
+[node name="GrassCollectButton" type="TouchScreenButton" parent="Right_Less"]
+visible = false
+modulate = Color( 1, 1, 1, 0.623529 )
+position = Vector2( 530, 243 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Right_Less/GrassCollectButton"]
+margin_left = 7.07693
+margin_top = 4.76923
+margin_right = 79.0769
+margin_bottom = 18.7692
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "СОБРАТЬ"
+align = 1
+
+[node name="GardenBuyButton" type="TouchScreenButton" parent="Right_Less"]
+visible = false
+modulate = Color( 1, 1, 1, 0.623529 )
+position = Vector2( 440, 216 )
+scale = Vector2( 2.59155, 1.3 )
+normal = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Right_Less/GardenBuyButton"]
+margin_left = 4.24457
+margin_top = 4.61536
+margin_right = 212.245
+margin_bottom = 18.6153
+rect_scale = Vector2( 0.3, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "посадить ЗА 1к€ И 10 ГРАММ"
+align = 1
+
+[node name="Buffs" parent="Right_Less" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 468, 2 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="TextureButton" parent="Right_Less" instance=ExtResource( 28 )]
+position = Vector2( 568, 293 )
+scale = Vector2( 1.3, 1.3 )
+
+[node name="TextureButton2" parent="Right_Less" instance=ExtResource( 1 )]
+position = Vector2( 435, 293 )
+scale = Vector2( 1.3, 1.3 )
+pressed = null
+
+[node name="TextureButton4" parent="Right_Less" instance=ExtResource( 32 )]
+position = Vector2( 501, 293 )
+scale = Vector2( 1.3, 1.3 )
+
+[node name="RunButton" parent="Right_Less" instance=ExtResource( 14 )]
+position = Vector2( 369, 293 )
+
+[node name="Left_Less" type="Control" parent="."]
+anchor_top = 0.00277778
+anchor_right = 1.00156
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Control" parent="Left_Less" instance=ExtResource( 2 )]
+margin_left = 10.0
+margin_top = -353.0
+margin_right = 10.0
+margin_bottom = -353.0
+
+[node name="FPS" parent="Left_Less" instance=ExtResource( 11 )]
+
+[node name="Left_Center" type="Control" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -180.0
+margin_right = 40.0
+margin_bottom = -140.0
+
+[node name="Quests" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -640.0
+margin_right = -600.0
+margin_bottom = 40.0
+
+[node name="TouchScreenButton" parent="Quests" instance=ExtResource( 3 )]
+position = Vector2( 526, 2 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="TouchScreenButton2" parent="Quests" instance=ExtResource( 9 )]
+position = Vector2( 584, 2 )
+scale = Vector2( 1.1, 1.1 )
+script = ExtResource( 10 )
+
+[node name="Center" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 18.0
+
+[node name="Sprite" parent="Center" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 14, -31 )
+
+[node name="ColorRect" type="ColorRect" parent="Center"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 4 )
+margin_left = -586.0
+margin_top = -269.0
+margin_right = 679.0
+margin_bottom = 298.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Center"]
+anims/Go = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="Node2D" type="Node2D" parent="Center"]
+visible = false
+z_index = 4
+
+[node name="CentrifugePanelBg" type="Sprite" parent="Center/Node2D"]
+position = Vector2( 27, -4 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 22 )
+
+[node name="Label" type="Label" parent="Center/Node2D"]
+margin_left = 24.0
+margin_top = -107.0
+margin_right = 164.0
+margin_bottom = -93.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "0 - выключен"
+align = 1
+
+[node name="Descrpt" type="Label" parent="Center/Node2D"]
+margin_left = 95.0
+margin_top = -84.0
+margin_right = 143.0
+margin_bottom = -70.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "смазка"
+align = 1
+
+[node name="TextureProgress" type="TextureProgress" parent="Center/Node2D"]
+margin_left = 99.0
+margin_top = 82.0
+margin_right = 251.0
+margin_bottom = 122.0
+rect_rotation = -90.0
+value = 50.0
+texture_under = ExtResource( 24 )
+texture_progress = ExtResource( 23 )
+texture_progress_offset = Vector2( 2, 2 )
+tint_progress = Color( 0.701961, 0.682353, 0.341176, 1 )
+
+[node name="Descrpt2" type="Label" parent="Center/Node2D"]
+margin_left = 14.0
+margin_top = -84.0
+margin_right = 154.0
+margin_bottom = -70.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "темп."
+align = 1
+
+[node name="TextureProgress2" type="TextureProgress" parent="Center/Node2D"]
+margin_left = 63.0
+margin_top = 82.0
+margin_right = 215.0
+margin_bottom = 101.0
+rect_rotation = -90.0
+value = 25.0
+texture_under = ExtResource( 24 )
+texture_progress = ExtResource( 23 )
+texture_progress_offset = Vector2( 2, 2 )
+tint_progress = Color( 0.211765, 0.211765, 0.211765, 1 )
+
+[node name="Descrpt4" type="Label" parent="Center/Node2D"]
+margin_left = -109.0
+margin_top = -84.0
+margin_right = 31.0
+margin_bottom = -70.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "прогресс"
+align = 1
+
+[node name="TextureProgress3" type="TextureProgress" parent="Center/Node2D"]
+margin_left = -63.0
+margin_top = 82.0
+margin_right = 89.0
+margin_bottom = 101.0
+rect_rotation = -90.0
+texture_under = ExtResource( 24 )
+texture_progress = ExtResource( 23 )
+texture_progress_offset = Vector2( 2, 2 )
+tint_progress = Color( 0, 0.882353, 0.0352941, 1 )
+
+[node name="Descrpt3" type="Label" parent="Center/Node2D"]
+margin_left = 17.0
+margin_top = -1.0
+margin_right = 157.0
+margin_bottom = 161.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "100
+
+50
+
+20
+
+0"
+align = 1
+
+[node name="Control" parent="." instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 47.0
+margin_top = -4.0
+margin_right = 128.0
+margin_bottom = 22.0
+rect_scale = Vector2( 1.1, 1.1 )
+
+[node name="Invent" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="InventoryButton" parent="Invent" instance=ExtResource( 27 )]
+position = Vector2( 6, 4 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="CenterMessage" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -362.0
+margin_right = 320.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ItemBoxMessage" parent="CenterMessage" instance=ExtResource( 8 )]
+position = Vector2( 0, 26 )
+
+[node name="Inventory" parent="." instance=ExtResource( 29 )]
+visible = false
+margin_left = -319.0
+margin_top = -187.0
+margin_right = -319.0
+margin_bottom = -187.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 330, 185.556 )
+
+[node name="MakeDurs" type="ColorRect" parent="."]
+visible = false
+margin_left = -49.0
+margin_top = -44.0
+margin_right = 667.0
+margin_bottom = 391.0
+rect_scale = Vector2( 1, 0.988436 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Description" type="Label" parent="MakeDurs"]
+margin_left = 257.0
+margin_top = 44.5148
+margin_right = 465.0
+margin_bottom = 116.515
+custom_fonts/font = SubResource( 1 )
+text = "насыпьте траву на бумагу! 
+5 грамм - маленький
+10 грамм - обычный 
+20 грамм - большой  
+40 грамм - плотный"
+align = 1
+
+[node name="Drug_choose" type="TouchScreenButton" parent="MakeDurs"]
+position = Vector2( 75, 60.7019 )
+normal = ExtResource( 15 )
+
+[node name="Choose_grass" type="Label" parent="MakeDurs/Drug_choose"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 150.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "плохая:0"
+align = 1
+
+[node name="Drug_choose2" type="TouchScreenButton" parent="MakeDurs"]
+position = Vector2( 75, 84.9827 )
+normal = ExtResource( 15 )
+
+[node name="Choose_grass" type="Label" parent="MakeDurs/Drug_choose2"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 149.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "хорошая:0"
+align = 1
+
+[node name="Create_smoke" type="TouchScreenButton" parent="MakeDurs"]
+position = Vector2( 257, 352.071 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 15 )
+
+[node name="Choose_grass" type="Label" parent="MakeDurs/Create_smoke"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 149.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "завернуть косяк"
+align = 1
+
+[node name="Choose_grass" type="Label" parent="MakeDurs"]
+margin_left = 49.0
+margin_top = 44.5148
+margin_right = 257.0
+margin_bottom = 71.5148
+custom_fonts/font = SubResource( 1 )
+text = "выберите тип травы:
+"
+align = 1
+
+[node name="last_grass" type="Label" parent="MakeDurs"]
+margin_left = 465.0
+margin_top = 45.0
+margin_right = 689.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 1 )
+text = "потраченно на косяк травы:
+"
+align = 1
+autowrap = true
+
+[node name="Message" parent="." instance=ExtResource( 4 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="JotaroRemembers" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="JotaroRemembers"]
+autoplay = "RESET"
+anims/Go = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="1" type="Sprite" parent="JotaroRemembers"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 336, -180 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 16 )
+
+[node name="2" type="Sprite" parent="JotaroRemembers"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 394, 226 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 18 )
+
+[node name="3" type="Sprite" parent="JotaroRemembers"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 11, 351 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 17 )
+
+[node name="TeleportPanel" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -362.0
+margin_top = -115.0
+margin_right = 281.0
+margin_bottom = 249.0
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 157, 249 )
+
+[node name="ColorRect" type="ColorRect" parent="TeleportPanel"]
+margin_left = -85.0
+margin_top = -406.0
+margin_right = 768.0
+margin_bottom = 480.0
+color = Color( 0, 0, 0, 0.290196 )
+
+[node name="GeneralMenuPanel" type="Sprite" parent="TeleportPanel"]
+position = Vector2( 314, 139 )
+rotation = 1.5708
+scale = Vector2( 0.543171, 0.82651 )
+texture = ExtResource( 19 )
+
+[node name="Choose_grass" type="Label" parent="TeleportPanel"]
+margin_left = 209.0
+margin_top = 66.0
+margin_right = 425.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 1 )
+text = "- куда вас телепортировать?"
+align = 1
+
+[node name="TeleportsText" type="Label" parent="TeleportPanel"]
+margin_left = 166.231
+margin_top = 176.692
+margin_right = 462.231
+margin_bottom = 219.692
+custom_fonts/font = SubResource( 1 )
+text = "вытелепов 99900"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TeleportPanel"]
+margin_left = 171.615
+margin_top = 102.846
+margin_right = 502.615
+margin_bottom = 177.846
+rect_scale = Vector2( 0.85, 0.85 )
+custom_constants/separation = 68
+
+[node name="WorldPanel" parent="TeleportPanel/HBoxContainer" instance=ExtResource( 21 )]
+margin_bottom = 74.0
+
+[node name="WorldPanel2" parent="TeleportPanel/HBoxContainer" instance=ExtResource( 21 )]
+margin_left = 68.0
+margin_right = 68.0
+margin_bottom = 74.0
+teleport_id = 1
+
+[node name="WorldPanel3" parent="TeleportPanel/HBoxContainer" instance=ExtResource( 21 )]
+margin_left = 136.0
+margin_right = 136.0
+margin_bottom = 74.0
+teleport_id = 2
+
+[node name="WorldPanel4" parent="TeleportPanel/HBoxContainer" instance=ExtResource( 21 )]
+margin_left = 204.0
+margin_right = 204.0
+margin_bottom = 74.0
+teleport_id = 3
+
+[node name="WorldPanel5" parent="TeleportPanel/HBoxContainer" instance=ExtResource( 21 )]
+margin_left = 272.0
+margin_right = 272.0
+margin_bottom = 74.0
+teleport_id = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TeleportPanel"]
+anims/start = SubResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 999, 999 )
+
+[connection signal="inventory_will_activate" from="." to="Inventory" method="_on_GUI_inventory_will_activate"]
+[connection signal="pressed" from="Right_Less/MiniGameTreeButton" to="." method="_on_MiniGameTreeButton_pressed"]
+[connection signal="pressed" from="Right_Less/TrashLootButton" to="." method="_on_TrashLootButton_pressed"]
+[connection signal="pressed" from="Right_Less/GrassCollectButton" to="." method="_on_GrassCollectButton_pressed"]
+[connection signal="pressed" from="Right_Less/GardenBuyButton" to="." method="_on_GardenBuyButton_pressed"]
+[connection signal="stand_activate" from="Right_Less/TextureButton" to="." method="_on_TextureButton_stand_activate"]
+[connection signal="dialog" from="Right_Less/TextureButton2" to="." method="_on_TextureButton_dialog"]
+[connection signal="item_activate" from="Right_Less/TextureButton4" to="." method="_on_TextureButton2_item_activate"]
+[connection signal="pressed" from="Right_Less/TextureButton4" to="Right_Less/TextureButton4" method="_on_TextureButton2_pressed"]
+[connection signal="use_move_vector" from="Left_Less/Control" to="." method="_on_Control_use_move_vector"]
+[connection signal="quest_activate" from="Quests/TouchScreenButton" to="." method="_on_TouchScreenButton_quest_activate"]
+[connection signal="pressed" from="Quests/TouchScreenButton2" to="." method="_on_TouchScreenButton2_pressed"]
+[connection signal="pressed" from="Quests/TouchScreenButton2" to="Quests/TouchScreenButton2" method="_on_TouchScreenButton2_pressed"]
+[connection signal="invent_activate" from="Invent/InventoryButton" to="." method="_on_InventoryButton_invent_activate"]
+[connection signal="pressed" from="Invent/InventoryButton" to="." method="_on_InventoryButton_pressed"]
+[connection signal="pressed" from="Invent/InventoryButton" to="Invent/InventoryButton" method="_on_InventoryButton_pressed"]
+[connection signal="pressed" from="MakeDurs/Drug_choose" to="." method="_on_Drug_choose_pressed"]
+[connection signal="pressed" from="MakeDurs/Drug_choose2" to="." method="_on_Drug_choose2_pressed"]
+[connection signal="pressed" from="MakeDurs/Create_smoke" to="." method="_on_Create_smoke_pressed"]

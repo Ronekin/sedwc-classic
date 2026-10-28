@@ -1,0 +1,292 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Textures/quest_background.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/GridContainer2.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/PanelQ_A.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/Podrobnosti_Del.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Q_A.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/BackGroundMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="Control" parent="." instance=ExtResource( 6 )]
+margin_left = -327.0
+margin_top = -178.0
+margin_right = 313.0
+margin_bottom = 182.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.454902 )
+margin_left = -537.0
+margin_top = -341.0
+margin_right = 1183.0
+margin_bottom = 744.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -185.5
+margin_top = -157.5
+margin_right = 99.5
+margin_bottom = 73.5
+rect_scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 1 )
+
+[node name="GridContainer" type="ScrollContainer" parent="TextureRect"]
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 676.0
+margin_bottom = 220.0
+script = ExtResource( 2 )
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/GridContainer"]
+margin_right = 269.0
+margin_bottom = 886.0
+custom_constants/vseparation = 2
+
+[node name="Panel" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_right = 269.0
+margin_bottom = 22.0
+text = "как получить стенд?"
+
+[node name="Panel2" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 24.0
+margin_right = 269.0
+margin_bottom = 46.0
+text = "как сбросить стенд?"
+
+[node name="Panel3" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 48.0
+margin_right = 269.0
+margin_bottom = 70.0
+text = "сколько всего в игре стендов?"
+
+[node name="Panel4" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 72.0
+margin_right = 269.0
+margin_bottom = 94.0
+text = "как выполнить квест?"
+
+[node name="Panel5" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 96.0
+margin_right = 269.0
+margin_bottom = 118.0
+text = "как получать предметы?"
+
+[node name="Panel6" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 120.0
+margin_right = 269.0
+margin_bottom = 142.0
+text = "зачем нужна стрела?"
+
+[node name="Panel7" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 144.0
+margin_right = 269.0
+margin_bottom = 166.0
+text = "зачем нужен диск?"
+
+[node name="Panel32" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 168.0
+margin_right = 269.0
+margin_bottom = 190.0
+text = "зачем нужна рокакака?"
+
+[node name="Panel8" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 192.0
+margin_right = 269.0
+margin_bottom = 214.0
+text = "почему я нашел темный диск?"
+
+[node name="Panel9" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 216.0
+margin_right = 269.0
+margin_bottom = 238.0
+text = "зачем нужна пицца?"
+
+[node name="Panel10" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 240.0
+margin_right = 269.0
+margin_bottom = 262.0
+text = "зачем нужен стальной шар?"
+
+[node name="Panel11" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 264.0
+margin_right = 269.0
+margin_bottom = 286.0
+text = "зачем нужна рука святого трупа?"
+
+[node name="Panel12" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 288.0
+margin_right = 269.0
+margin_bottom = 310.0
+text = "зачем нужно ребро святого трупа?"
+
+[node name="Panel33" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 312.0
+margin_right = 269.0
+margin_bottom = 334.0
+text = "зачем нужен таз святого трупа?"
+
+[node name="Panel13" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 336.0
+margin_right = 269.0
+margin_bottom = 358.0
+text = "почему у меня два разных шара в инвентаре?"
+
+[node name="Panel14" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 360.0
+margin_right = 269.0
+margin_bottom = 382.0
+text = "почему меня в инвентаре появлиась пробка?"
+
+[node name="Panel15" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 384.0
+margin_right = 269.0
+margin_bottom = 406.0
+text = "почему у меня появилась пробка от вина с желтыми кольцами?"
+
+[node name="Panel16" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 408.0
+margin_right = 269.0
+margin_bottom = 430.0
+text = "почему джайро не хочет давать мне квест?"
+
+[node name="Panel17" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 432.0
+margin_right = 269.0
+margin_bottom = 454.0
+text = "почему я не могу атаковать?"
+
+[node name="Panel18" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 456.0
+margin_right = 269.0
+margin_bottom = 478.0
+text = "почему карта такая маленькая?"
+
+[node name="Panel19" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 480.0
+margin_right = 269.0
+margin_bottom = 502.0
+text = "почему можно сразиться только на отдельной арене?"
+
+[node name="Panel20" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 504.0
+margin_right = 269.0
+margin_bottom = 526.0
+text = "куда можно потратить деньги?"
+
+[node name="Panel22" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 528.0
+margin_right = 269.0
+margin_bottom = 550.0
+text = "где можно заработать деньги?"
+
+[node name="Panel21" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 552.0
+margin_right = 269.0
+margin_bottom = 574.0
+text = "какие техники боя существуют в игре?"
+
+[node name="Panel23" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 576.0
+margin_right = 269.0
+margin_bottom = 598.0
+text = "зачем нужен спин?"
+
+[node name="Panel24" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 600.0
+margin_right = 269.0
+margin_bottom = 622.0
+text = "почему я не могу атаковать стендом?"
+
+[node name="Panel25" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 624.0
+margin_right = 269.0
+margin_bottom = 646.0
+text = "что означают черепа у врага под иконкой?"
+
+[node name="Panel26" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 648.0
+margin_right = 269.0
+margin_bottom = 670.0
+text = "что означает \"средний урон\" у врага?"
+
+[node name="Panel27" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 672.0
+margin_right = 269.0
+margin_bottom = 694.0
+text = "что означает \"защита\" у врага?"
+
+[node name="Panel28" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 696.0
+margin_right = 269.0
+margin_bottom = 718.0
+text = "что означает отображение FPS в настройках?"
+
+[node name="Panel29" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 720.0
+margin_right = 269.0
+margin_bottom = 742.0
+text = "у меня Echoes Act 0 (яйцо), что с ним делать?"
+
+[node name="Panel30" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 744.0
+margin_right = 269.0
+margin_bottom = 766.0
+text = "где найти коды для ввода в настройках, и что они дают?"
+
+[node name="Panel31" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 768.0
+margin_right = 269.0
+margin_bottom = 790.0
+text = "что означает \"масштаб камеры\" в настройках?"
+
+[node name="Panel34" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 792.0
+margin_right = 269.0
+margin_bottom = 814.0
+text = "как попасть в магазин?"
+
+[node name="Panel35" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 816.0
+margin_right = 269.0
+margin_bottom = 838.0
+text = "что такое хранилище стендов?"
+
+[node name="Panel36" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 840.0
+margin_right = 269.0
+margin_bottom = 862.0
+text = "я не нашел ответ на свой вопрос"
+
+[node name="Panel38" parent="TextureRect/GridContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 864.0
+margin_right = 269.0
+margin_bottom = 886.0
+text = "как попасть в главное меню из свободной игры?"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TextureRect"]
+position = Vector2( 346.442, -13.4936 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+
+[node name="Label3" type="Label" parent="TextureRect"]
+margin_left = 185.154
+margin_top = 241.525
+margin_right = 486.154
+margin_bottom = 261.525
+custom_fonts/font = SubResource( 1 )
+text = "листать тут"
+align = 1
+
+[connection signal="released" from="TextureRect/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

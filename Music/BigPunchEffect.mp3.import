@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BigPunchEffect.mp3-7eb5765f70e95f987194ad59fe1a5893.mp3str"
+
+[deps]
+
+source_file="res://Music/BigPunchEffect.mp3"
+dest_files=[ "res://.import/BigPunchEffect.mp3-7eb5765f70e95f987194ad59fe1a5893.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

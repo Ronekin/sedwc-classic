@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TuskAct1Summon.mp3-625007e5557de9ffc5d2faae7cfa464f.mp3str"
+
+[deps]
+
+source_file="res://Music/TuskAct1Summon.mp3"
+dest_files=[ "res://.import/TuskAct1Summon.mp3-625007e5557de9ffc5d2faae7cfa464f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

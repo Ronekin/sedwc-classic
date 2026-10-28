@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shadow_tw_attack.mp3-5ff56358409e27e66ae2be9d0947f677.mp3str"
+
+[deps]
+
+source_file="res://Music/shadow_tw_attack.mp3"
+dest_files=[ "res://.import/shadow_tw_attack.mp3-5ff56358409e27e66ae2be9d0947f677.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

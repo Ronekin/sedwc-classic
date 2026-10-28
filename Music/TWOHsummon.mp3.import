@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TWOHsummon.mp3-42c0c9409c14acfae49101573d25d536.mp3str"
+
+[deps]
+
+source_file="res://Music/TWOHsummon.mp3"
+dest_files=[ "res://.import/TWOHsummon.mp3-42c0c9409c14acfae49101573d25d536.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

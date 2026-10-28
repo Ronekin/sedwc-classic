@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MorioMap.mp3-0e4832789907ea2681f8b807a8811846.mp3str"
+
+[deps]
+
+source_file="res://Music/MorioMap.mp3"
+dest_files=[ "res://.import/MorioMap.mp3-0e4832789907ea2681f8b807a8811846.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

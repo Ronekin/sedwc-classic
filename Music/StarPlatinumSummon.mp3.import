@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StarPlatinumSummon.mp3-b001c6675c00a664a67cfc23bf7836da.mp3str"
+
+[deps]
+
+source_file="res://Music/StarPlatinumSummon.mp3"
+dest_files=[ "res://.import/StarPlatinumSummon.mp3-b001c6675c00a664a67cfc23bf7836da.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

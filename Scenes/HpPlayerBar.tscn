@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Textures/HPBARBG.png" type="Texture" id=1]
+[ext_resource path="res://Textures/HPBAR.png" type="Texture" id=2]
+[ext_resource path="res://Textures/HpPlayerBar.gd" type="Script" id=3]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="TextureProgress" type="TextureProgress"]
+margin_right = 152.0
+margin_bottom = 19.0
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+texture_progress_offset = Vector2( 2, 2 )
+script = ExtResource( 3 )
+
+[node name="value" type="Label" parent="."]
+margin_left = -52.0
+margin_top = 4.0
+margin_right = 132.0
+margin_bottom = 16.0
+rect_scale = Vector2( 0.76867, 0.756069 )
+rect_pivot_offset = Vector2( 246, -3.8147e-06 )
+custom_fonts/font = SubResource( 1 )
+text = "текущее хп:100"
+align = 1

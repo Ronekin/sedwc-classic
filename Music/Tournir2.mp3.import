@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tournir2.mp3-7bd0ea777baf612f064bfb42b830289a.mp3str"
+
+[deps]
+
+source_file="res://Music/Tournir2.mp3"
+dest_files=[ "res://.import/Tournir2.mp3-7bd0ea777baf612f064bfb42b830289a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,283 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Textures/UI/CentrifugePanel_BG.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/MiniGame.gd" type="Script" id=2]
+[ext_resource path="res://Textures/UI/WhiteBAR.png" type="Texture" id=3]
+[ext_resource path="res://Textures/UI/WhiteBAR_BG.png" type="Texture" id=4]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Textures/UI/MiniGameButton.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Others/SkillButton.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="MiniGame" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 13, 102 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -309.0
+margin_top = -68.0
+margin_right = 1128.0
+margin_bottom = 438.0
+color = Color( 0, 0, 0, 0.301961 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="CentrifugePanelBg" type="Sprite" parent="Control"]
+position = Vector2( 317, 174 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+
+[node name="Temp" type="TextureProgress" parent="Control"]
+margin_left = 411.0
+margin_top = 283.0
+margin_right = 563.0
+margin_bottom = 303.0
+rect_rotation = -90.0
+rect_scale = Vector2( 1.3, 1.3 )
+value = 55.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+texture_progress_offset = Vector2( 2, 2 )
+tint_progress = Color( 1, 0, 0, 1 )
+
+[node name="Pressure" type="TextureProgress" parent="Control"]
+margin_left = 330.0
+margin_top = 283.0
+margin_right = 482.0
+margin_bottom = 303.0
+rect_rotation = -90.0
+rect_scale = Vector2( 1.3, 1.3 )
+value = 75.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+texture_progress_offset = Vector2( 2, 2 )
+tint_progress = Color( 0, 0.742188, 1, 1 )
+
+[node name="Progress" type="TextureProgress" parent="Control"]
+margin_left = 296.0
+margin_top = 283.0
+margin_right = 448.0
+margin_bottom = 303.0
+rect_rotation = -90.0
+rect_scale = Vector2( 1.3, 1.3 )
+value = 50.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+texture_progress_offset = Vector2( 2, 2 )
+tint_progress = Color( 0, 1, 0.0666667, 1 )
+
+[node name="hello4" type="Label" parent="Control"]
+margin_left = 351.0
+margin_top = 256.0
+margin_right = 441.0
+margin_bottom = 283.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "< 
+давление"
+autowrap = true
+
+[node name="hello11" type="Label" parent="Control"]
+margin_left = 225.16
+margin_top = 159.36
+margin_right = 315.16
+margin_bottom = 186.36
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "< спуск"
+autowrap = true
+
+[node name="StateText" type="Label" parent="Control"]
+margin_left = 311.0
+margin_top = 39.0
+margin_right = 451.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "обжиг"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="hello10" type="Label" parent="Control"]
+margin_left = 272.0
+margin_top = 283.0
+margin_right = 362.0
+margin_bottom = 310.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "прогресс"
+autowrap = true
+
+[node name="hello7" type="Label" parent="Control"]
+margin_left = 431.0
+margin_top = 254.0
+margin_right = 521.0
+margin_bottom = 281.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "< 
+температура"
+autowrap = true
+
+[node name="hello5" type="Label" parent="Control"]
+margin_left = 436.0
+margin_top = 117.0
+margin_right = 526.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "< 1250°C"
+autowrap = true
+
+[node name="hello8" type="Label" parent="Control"]
+margin_left = 356.0
+margin_top = 135.0
+margin_right = 446.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "< 4.5 
+  бар"
+autowrap = true
+
+[node name="hello9" type="Label" parent="Control"]
+margin_left = 356.0
+margin_top = 191.0
+margin_right = 446.0
+margin_bottom = 218.0
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "< 3.0 
+  бар"
+autowrap = true
+
+[node name="hello6" type="Label" parent="Control"]
+margin_left = 436.0
+margin_top = 167.0
+margin_right = 526.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "< 1150°C"
+autowrap = true
+
+[node name="TempUp" type="TouchScreenButton" parent="Control"]
+position = Vector2( 235, 82 )
+scale = Vector2( 2.5, 2.5 )
+normal = ExtResource( 6 )
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+margin_left = 198.0
+margin_top = 85.0
+margin_right = 221.0
+margin_bottom = 168.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VScrollBar" type="VScrollBar" parent="Control"]
+margin_left = 191.0
+margin_top = 82.0
+margin_right = 216.0
+margin_bottom = 141.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/grabber_highlight = SubResource( 2 )
+custom_styles/grabber = SubResource( 2 )
+custom_styles/scroll = SubResource( 3 )
+custom_styles/grabber_pressed = SubResource( 2 )
+value = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Start"
+anims/Start = SubResource( 4 )
+
+[connection signal="focus_entered" from="Control/VScrollBar" to="." method="VScrollBar_focus_entered"]
+[connection signal="focus_exited" from="Control/VScrollBar" to="." method="VScrollBar_focus_exited"]
+[connection signal="gui_input" from="Control/VScrollBar" to="." method="_on_VScrollBar_gui_input"]

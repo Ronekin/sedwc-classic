@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BigAttackSCR.mp3-189695a6f056d7c5a6857ee2685fc9cd.mp3str"
+
+[deps]
+
+source_file="res://Music/BigAttackSCR.mp3"
+dest_files=[ "res://.import/BigAttackSCR.mp3-189695a6f056d7c5a6857ee2685fc9cd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MIHhit.mp3-7ff245c2ab2f6e5607da780e73aad6b0.mp3str"
+
+[deps]
+
+source_file="res://Music/MIHhit.mp3"
+dest_files=[ "res://.import/MIHhit.mp3-7ff245c2ab2f6e5607da780e73aad6b0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

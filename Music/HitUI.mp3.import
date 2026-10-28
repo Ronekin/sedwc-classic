@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HitUI.mp3-e514559acf9652d28119de1d095e21fc.mp3str"
+
+[deps]
+
+source_file="res://Music/HitUI.mp3"
+dest_files=[ "res://.import/HitUI.mp3-e514559acf9652d28119de1d095e21fc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

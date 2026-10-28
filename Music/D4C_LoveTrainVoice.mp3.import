@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/D4C_LoveTrainVoice.mp3-be506dd483a41169a96b406fee1e936d.mp3str"
+
+[deps]
+
+source_file="res://Music/D4C_LoveTrainVoice.mp3"
+dest_files=[ "res://.import/D4C_LoveTrainVoice.mp3-be506dd483a41169a96b406fee1e936d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

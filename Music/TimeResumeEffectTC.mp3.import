@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TimeResumeEffectTC.mp3-2c453df293dbaa35d01d6567de9195d3.mp3str"
+
+[deps]
+
+source_file="res://Music/TimeResumeEffectTC.mp3"
+dest_files=[ "res://.import/TimeResumeEffectTC.mp3-2c453df293dbaa35d01d6567de9195d3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

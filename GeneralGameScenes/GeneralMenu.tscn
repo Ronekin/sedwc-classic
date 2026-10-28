@@ -1,0 +1,905 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://Scenes/Table.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Textures/StandEraBook.png" type="Texture" id=2]
+[ext_resource path="res://Textures/GameBack.png" type="Texture" id=3]
+[ext_resource path="res://Textures/QuitButton.png" type="Texture" id=4]
+[ext_resource path="res://GeneralGameScenes/FreeGamePael.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GeneralGameScenes/GeneralMenu.gd" type="Script" id=6]
+[ext_resource path="res://Textures/BlackGradient.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/ScrollContainer.gd" type="Script" id=8]
+[ext_resource path="res://GeneralGameScenes/ComingSoonPael.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Textures/GeneralMenuPanel.png" type="Texture" id=11]
+[ext_resource path="res://Textures/ButtonBack.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/TrainingPanel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/GameSettingsTheme.tres" type="Theme" id=14]
+[ext_resource path="res://Textures/tutorial_button.png" type="Texture" id=15]
+[ext_resource path="res://Music/GeneralMenuMusic.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Music/ButtonPressed.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Textures/quest_panel.png" type="Texture" id=19]
+[ext_resource path="res://Textures/Jotaro.png" type="Texture" id=20]
+[ext_resource path="res://Textures/Stand_Sheet-sheet.png" type="Texture" id=21]
+[ext_resource path="res://Textures/GGSheet.png" type="Texture" id=22]
+[ext_resource path="res://Textures/Stand_Sheet.png" type="Texture" id=23]
+[ext_resource path="res://Textures/NPC_sheet.png" type="Texture" id=24]
+[ext_resource path="res://Textures/StandSelectIcon.png" type="Texture" id=25]
+[ext_resource path="res://Textures/Light.png" type="Texture" id=26]
+
+[sub_resource type="Shader" id=13]
+code = "shader_type canvas_item ;
+
+uniform float pause : hint_range(0.1, 10.0, 0.1) = 1.0;
+//render_mode blend_add;
+
+void fragment() {
+	vec4 pixel_color = texture(TEXTURE, UV);
+	float luminance = dot(pixel_color.rgb, vec3(0.299, 0.587, 0.114));
+	float time = (TIME * 0.2 / pause) + 0.5;
+	vec4 color = pixel_color ;
+//	float coord_da = ;
+	if (time > 0.0) {
+		time = time - float(int(time));
+	}
+	time = time*16.0*pause - 1.0 ;
+	if (time > 1.0) {
+		time = 99.0;
+	}
+	vec2 dist = abs(UV - vec2(time, time));
+	float Distanc = sqrt((dist.x * dist.x + dist.y * dist.y));
+//	bool da = fйe ;
+	if (luminance > 0.4 ) {
+//	if (luminance > 0.4 &&( ((abs(dist.x - dist.y) < 0.05 && abs(UV.x - UV.y) > 0.05)) || Distanc < 0.04) ) {
+		if ( ( abs(UV.x-time - UV.y) < 0.05) ) {
+			color *= 1.9 ;
+//			da = true;
+			}
+	}
+//	if (! da) {
+//		color.a = 0.0
+//	}
+//	else {
+//		COLOR = pixel_color
+//	}
+	COLOR = color;
+
+}"
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = SubResource( 13 )
+shader_param/pause = 0.3
+
+[sub_resource type="DynamicFont" id=10]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=11]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label4:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -296, -8 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Start"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label4:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.1 ), Vector2( 1.2, 1.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label4:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -290, -7 ), Vector2( -298, -10 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Back"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 950, 172 ), Vector2( 320, 172 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SelectGame:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/BackButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SelectGame:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 796, -1 ), Vector2( 796, 414 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HUD/GameButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "GameActivate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 172 ), Vector2( 950, 172 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SelectGame:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/BackButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SelectGame:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 2,
+"values": [ Vector2( 796, 414 ), Vector2( 796, -1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HUD/ToturoalButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HUD/GameButton:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 172 ), Vector2( 320, 169 ), Vector2( 320, 172 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SelectGame:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/BackButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 320, 172 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SelectGame:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/BackButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SelectGame:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 490, 414 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HUD/ToturoalButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HUD/GameButton:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=15]
+blend_mode = 1
+
+[sub_resource type="DynamicFont" id=7]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 3 ),
+"transitions": PoolRealArray( 1, 0.901251, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.0627451, 0, 0.121569, 1 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
+
+[node name="GeneralMenu" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Table" parent="." instance=ExtResource( 1 )]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 320, 172 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+
+[node name="Book" type="Sprite" parent="."]
+material = SubResource( 14 )
+position = Vector2( 322, 188 )
+z_index = 2
+texture = ExtResource( 2 )
+
+[node name="Jotaro" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( 113, 249 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+texture = ExtResource( 20 )
+
+[node name="StandSheet-sheet" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( 152, 151 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 21 )
+flip_h = true
+hframes = 9
+vframes = 10
+frame = 49
+
+[node name="GgSheet" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -55, 260 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+texture = ExtResource( 22 )
+flip_h = true
+hframes = 6
+vframes = 5
+
+[node name="hello" type="Label" parent="Book/GgSheet"]
+visible = false
+margin_left = -60.6667
+margin_top = -58.6667
+margin_right = 52.3333
+margin_bottom = -31.6667
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_fonts/font = SubResource( 10 )
+text = "cyberelisei"
+align = 1
+valign = 1
+
+[node name="StandSheet-sheet2" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -84, 222 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 23 )
+hframes = 10
+vframes = 10
+frame = 72
+
+[node name="NpcSheet" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -55, 176 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 24 )
+flip_h = true
+hframes = 13
+vframes = 2
+frame = 5
+
+[node name="Light" type="Sprite" parent="Book"]
+visible = false
+modulate = Color( 1, 1, 1, 0.576471 )
+position = Vector2( -218.451, 15.6487 )
+scale = Vector2( 1.84999, 1.29756 )
+texture = ExtResource( 26 )
+
+[node name="StandSelectIcon2" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -285.267, -15.2718 )
+rotation = 0.0709035
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+hframes = 15
+vframes = 2
+frame = 15
+
+[node name="StandSelectIcon" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -251, -8 )
+rotation = 0.0539577
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+hframes = 15
+vframes = 2
+frame = 16
+
+[node name="StandSelectIcon3" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -220, -3 )
+rotation = 0.0539577
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+hframes = 15
+vframes = 2
+frame = 17
+
+[node name="StandSelectIcon4" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -186, 0 )
+rotation = 0.0539577
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+hframes = 15
+vframes = 2
+frame = 13
+
+[node name="StandSelectIcon5" type="Sprite" parent="Book"]
+visible = false
+position = Vector2( -147, 9 )
+rotation = 0.0709035
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+hframes = 15
+vframes = 2
+frame = 20
+
+[node name="Label4" type="Label" parent="Book"]
+margin_left = -296.0
+margin_top = -8.0
+margin_right = -120.0
+margin_bottom = 79.0
+rect_rotation = 9.0501
+rect_scale = Vector2( 1.10983, 1.10983 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.454902, 0.454902, 0.454902, 1 )
+custom_constants/shadow_as_outline = 2
+custom_fonts/font = SubResource( 11 )
+text = "патч 0.1.2.2
++ фикс вылетов
++ доработка д4с
++ реворк спина"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Book"]
+autoplay = "Start"
+anims/RESET = SubResource( 16 )
+anims/Start = SubResource( 17 )
+
+[node name="CameraAnimation" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Back = SubResource( 6 )
+anims/GameActivate = SubResource( 5 )
+anims/Idle = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="HUD" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 641.0
+margin_bottom = 354.0
+rect_pivot_offset = Vector2( -958, 158 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light3" type="Sprite" parent="HUD"]
+modulate = Color( 0.12549, 0.117647, 0.137255, 0.670588 )
+material = SubResource( 15 )
+position = Vector2( 318, -5 )
+scale = Vector2( 11.1324, 0.866579 )
+texture = ExtResource( 26 )
+
+[node name="BlackGradient" type="Sprite" parent="HUD"]
+modulate = Color( 1, 1, 1, 0.596078 )
+position = Vector2( 320, 180 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Control" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = 320.0
+margin_top = -180.0
+margin_right = 2080.0
+margin_bottom = 178.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control2" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = -967.0
+margin_top = -180.0
+margin_right = -320.0
+margin_bottom = 179.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control5" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = -973.0
+margin_top = -539.0
+margin_right = -320.0
+margin_bottom = -180.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control6" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = -973.0
+margin_top = 179.0
+margin_right = -320.0
+margin_bottom = 538.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control7" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = 320.0
+margin_top = 178.0
+margin_right = 973.0
+margin_bottom = 537.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control8" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = 320.0
+margin_top = -536.0
+margin_right = 1989.0
+margin_bottom = -180.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control3" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = -320.0
+margin_top = 180.0
+margin_right = 320.0
+margin_bottom = 539.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control4" type="ColorRect" parent="HUD/BlackGradient"]
+margin_left = -320.0
+margin_top = -538.0
+margin_right = 320.0
+margin_bottom = -180.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 17 )
+pitch_scale = 0.76
+
+[node name="GameButton" type="TouchScreenButton" parent="HUD"]
+position = Vector2( 500, 305 )
+normal = ExtResource( 3 )
+
+[node name="QuitButton" type="TouchScreenButton" parent="HUD"]
+position = Vector2( 3, 304 )
+normal = ExtResource( 4 )
+
+[node name="BackButton" type="TouchScreenButton" parent="HUD"]
+position = Vector2( 1115, 294 )
+normal = ExtResource( 12 )
+
+[node name="ToturoalButton" type="TouchScreenButton" parent="HUD"]
+visible = false
+self_modulate = Color( 0.207843, 0, 0.356863, 1 )
+position = Vector2( 1115, 241 )
+normal = ExtResource( 15 )
+
+[node name="Label2" type="Label" parent="HUD"]
+visible = false
+margin_left = 1102.0
+margin_top = 181.0
+margin_right = 1238.0
+margin_bottom = 208.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 7 )
+text = "новичек в игре?
+советуем почитать"
+align = 1
+
+[node name="Label3" type="Label" parent="HUD"]
+visible = false
+margin_left = 1193.0
+margin_top = 220.0
+margin_right = 1209.0
+margin_bottom = 237.0
+rect_rotation = 90.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 7 )
+text = "->"
+align = 1
+
+[node name="SelectGame" type="Control" parent="."]
+margin_left = 490.0
+margin_top = 414.0
+margin_right = 1275.0
+margin_bottom = 767.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="SelectGame"]
+margin_left = 42.0
+margin_top = 20.0
+margin_right = 395.0
+margin_bottom = 420.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="SelectGame/TextureRect"]
+margin_left = 116.842
+margin_top = 18.75
+margin_right = 212.842
+margin_bottom = 32.75
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 7 )
+text = "выбор режима"
+
+[node name="Label2" type="Label" parent="SelectGame"]
+margin_left = 129.0
+margin_top = 277.0
+margin_right = 225.0
+margin_bottom = 291.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 7 )
+text = "листать тут"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SelectGame"]
+margin_left = 77.0
+margin_top = 54.0
+margin_right = 285.0
+margin_bottom = 673.0
+theme = ExtResource( 14 )
+script = ExtResource( 8 )
+
+[node name="GridContainer" type="GridContainer" parent="SelectGame/ScrollContainer"]
+margin_right = 360.0
+custom_constants/vseparation = 360
+custom_constants/hseparation = 120
+columns = 5
+
+[node name="Game" parent="SelectGame/ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+
+[node name="Training" parent="SelectGame/ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+margin_left = 120.0
+margin_right = 120.0
+type = 1
+
+[node name="Training2" parent="SelectGame/ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+margin_left = 240.0
+margin_right = 240.0
+type = 2
+
+[node name="Control3" parent="SelectGame/ScrollContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 360.0
+margin_right = 360.0
+
+[node name="Control4" parent="SelectGame/ScrollContainer/GridContainer" instance=ExtResource( 9 )]
+visible = false
+margin_left = 480.0
+margin_right = 480.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Light2" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 0.113725, 0.113725, 0.113725, 0.403922 )
+position = Vector2( 318, 355.206 )
+scale = Vector2( 8.84785, 1.02142 )
+texture = ExtResource( 26 )
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.192157 )
+margin_left = -659.0
+margin_top = -387.0
+margin_right = 1304.0
+margin_bottom = 665.0
+color = Color( 0.0352941, 0.0392157, 0.223529, 0.278431 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -584.0
+margin_top = -353.0
+margin_right = 1379.0
+margin_bottom = 699.0
+color = Color( 0.0627451, 0, 0.121569, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "Start"
+anims/RESET = SubResource( 8 )
+anims/Start = SubResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = 5.0
+mix_target = 2
+bus = "Music"
+
+[node name="Book2" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.917647, 0.627451, 1, 0.603922 )
+material = SubResource( 12 )
+position = Vector2( 322, 186 )
+texture = ExtResource( 2 )
+
+[node name="DonatePage" type="TouchScreenButton" parent="."]
+position = Vector2( 1113, 27 )
+normal = ExtResource( 19 )
+
+[node name="Label2" type="Label" parent="DonatePage"]
+margin_left = 8.0
+margin_top = 12.0
+margin_right = 115.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 7 )
+text = "донат магазин"
+align = 2
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.560784 )
+margin_left = 9.0
+margin_top = 8.0
+margin_right = 71.0
+margin_bottom = 80.0
+rect_scale = Vector2( 2.5, 2.5 )
+custom_colors/font_color = Color( 0.929412, 0.729412, 0.133333, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "STAND
+ERA
+DREAM
+WORLD 
+CONCEPT"
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+margin_left = 185.0
+margin_top = -3.0
+margin_right = 369.0
+margin_bottom = 9.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.780392, 0.309804, 0.0745098, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "by @Meanil146 & ilir100"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 175.0
+margin_top = -24.0
+margin_right = 367.0
+margin_bottom = 18.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.501961, 0.501961, 0.501961, 1 )
+custom_constants/shadow_as_outline = 2
+custom_fonts/font = SubResource( 11 )
+text = "by new era studio"
+align = 1
+valign = 1
+
+[connection signal="animation_finished" from="CameraAnimation" to="." method="_on_CameraAnimation_animation_finished"]
+[connection signal="pressed" from="HUD/GameButton" to="." method="_on_GameButton_pressed"]
+[connection signal="pressed" from="HUD/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="HUD/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="HUD/ToturoalButton" to="." method="_on_ToturoalButton_pressed"]
+[connection signal="pressed" from="DonatePage" to="." method="_on_DonatePage_pressed"]

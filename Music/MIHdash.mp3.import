@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MIHdash.mp3-55d6da4ad81e04be884362dc9e18d005.mp3str"
+
+[deps]
+
+source_file="res://Music/MIHdash.mp3"
+dest_files=[ "res://.import/MIHdash.mp3-55d6da4ad81e04be884362dc9e18d005.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GoldExpHeal.mp3-d484e4c3fa3eac8bd375e489b5b9d02d.mp3str"
+
+[deps]
+
+source_file="res://Music/GoldExpHeal.mp3"
+dest_files=[ "res://.import/GoldExpHeal.mp3-d484e4c3fa3eac8bd375e489b5b9d02d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

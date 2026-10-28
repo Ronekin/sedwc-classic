@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DiegoVoice.mp3-657ce3656647df014fd07829bad200ba.mp3str"
+
+[deps]
+
+source_file="res://Music/DiegoVoice.mp3"
+dest_files=[ "res://.import/DiegoVoice.mp3-657ce3656647df014fd07829bad200ba.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

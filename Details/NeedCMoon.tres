@@ -1,0 +1,78 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+// Переменная времени, которая постоянно растет (контролирует скорость скролла)
+uniform float external_time = 0.0; 
+
+// Скорость скроллинга
+uniform float scroll_speed = 1.0; 
+
+// Радиус области затемнения (от 0.0 до 0.5)
+uniform float dark_radius : hint_range(0.0, 0.5) = 0.15;
+
+// Насколько темным становится центр (0.0 = не меняется, 1.0 = полностью черный)
+uniform float dark_intensity : hint_range(0.0, 1.0) = 0.7; 
+uniform float hframes = 1 ;
+uniform float frame = 0 ;
+
+void fragment() {
+	float center_x = (frame + 0.5) / hframes ; 
+	float uv_local_x = (frame + 0.0) / hframes ; 
+	float center_dist_x = abs(UV.x  - center_x ) * hframes; 
+    // 1. Скроллинг (Смещение UV по X)
+    bool right = UV.x > center_x ;
+    // Вычисляем общее смещение, основанное на времени и скорости
+    float scroll_offset = external_time * scroll_speed * 0.1 ; // Умножаем на 0.1, чтобы скорость была контролируемой
+    scroll_offset *=  (sin(UV.y*200.0 * (scroll_offset)) * 1.0 * (center_dist_x * 15.0))*0.4 + (external_time * 2.0) ;
+    scroll_offset /=  hframes ;
+    // Смещаем UV.x. Используем mod (остаток от деления), чтобы текстура зациклилась
+    vec2 new_uv = UV;
+    new_uv.x = (( UV.x) + (scroll_offset * (float(right) - float(!right)))); 
+	if (new_uv.x > (frame + 1.0) / hframes) {
+		new_uv.x = 0.0
+	}
+//	new_uv.x += sin(UV.y * 0.2);
+//	if (new_uv.x > 0.6) {
+//		new_uv *= 0.0
+//		}
+    // 2. Расчет затемнения для центральной области
+    
+    // Позиция пикселя относительно центра по X (от -0.5 до 0.5)
+    
+	
+    
+    // 3. Создание маски затемнения
+    float dark_mask = 0.0;
+    
+    // Определяем, насколько далеко пиксель от центра (внутри радиуса)
+    if (center_dist_x < dark_radius && false) {
+        // Используем smoothstep для плавного перехода от края радиуса к центру
+        // 0.0 в центре, 1.0 на границе dark_radius
+        float dist_to_edge = center_dist_x / dark_radius; 
+        
+        // Инвертируем и сглаживаем: dark_mask = 1.0 в центре, 0.0 на краю радиуса
+        dark_mask = 1.0 - smoothstep(0.0, 1.0, dist_to_edge); 
+    }
+    
+    // Усиление затемнения (применяем интенсивность)
+    float final_darkness = dark_mask * dark_intensity;
+    
+    // 4. Применение цвета
+    vec4 color = texture(TEXTURE, new_uv);
+    
+    // Затемняем цвет (умножаем RGB на (1.0 - затемнение))
+    vec3 darkened_rgb = color.rgb * (1.0 - final_darkness);
+    
+    COLOR = vec4(darkened_rgb, color.a);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/external_time = 0.0
+shader_param/scroll_speed = 1.0
+shader_param/dark_radius = 0.15
+shader_param/dark_intensity = 0.7
+shader_param/hframes = 1.0
+shader_param/frame = 0.0

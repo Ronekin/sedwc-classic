@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MIHboost.mp3-6409fd08060ff150f8c9dd2bd61c49aa.mp3str"
+
+[deps]
+
+source_file="res://Music/MIHboost.mp3"
+dest_files=[ "res://.import/MIHboost.mp3-6409fd08060ff150f8c9dd2bd61c49aa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GERshot.mp3-a99f7276dc7bf41eb83cc9e843b54c3f.mp3str"
+
+[deps]
+
+source_file="res://Music/GERshot.mp3"
+dest_files=[ "res://.import/GERshot.mp3-a99f7276dc7bf41eb83cc9e843b54c3f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

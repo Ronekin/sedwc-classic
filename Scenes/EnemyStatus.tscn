@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/EnemyStatus.gd" type="Script" id=2]
+
+[node name="EnemyStatus" type="GridContainer"]
+margin_left = -15.0
+margin_right = 17.0
+custom_constants/hseparation = 16
+columns = 3
+script = ExtResource( 2 )

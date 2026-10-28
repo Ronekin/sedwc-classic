@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GeneralGameScenes/GENERAL_MUSIC_PLAYER.gd" type="Script" id=2]
+
+[node name="GENERAL_MUSIC_PLAYER" type="AudioStreamPlayer"]
+volume_db = -7.0
+bus = "Music"
+script = ExtResource( 2 )
+
+[connection signal="finished" from="." to="." method="_on_GENERAL_MUSIC_PLAYER_finished"]

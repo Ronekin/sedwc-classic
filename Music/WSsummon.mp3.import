@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WSsummon.mp3-e175d2d6a57699eed658c26f35b8c083.mp3str"
+
+[deps]
+
+source_file="res://Music/WSsummon.mp3"
+dest_files=[ "res://.import/WSsummon.mp3-e175d2d6a57699eed658c26f35b8c083.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

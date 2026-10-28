@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NailShoot.mp3-bb72df148817502d534a0cb8f2cdfb71.mp3str"
+
+[deps]
+
+source_file="res://Music/NailShoot.mp3"
+dest_files=[ "res://.import/NailShoot.mp3-bb72df148817502d534a0cb8f2cdfb71.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=1.0

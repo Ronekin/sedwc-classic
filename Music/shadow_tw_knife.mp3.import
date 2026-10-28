@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shadow_tw_knife.mp3-a5a4628dcdadbc4b8cde82d92d4ca810.mp3str"
+
+[deps]
+
+source_file="res://Music/shadow_tw_knife.mp3"
+dest_files=[ "res://.import/shadow_tw_knife.mp3-a5a4628dcdadbc4b8cde82d92d4ca810.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FlagWindD4C.mp3-84f9648b2a7c4fe77ce189e13dc1770e.mp3str"
+
+[deps]
+
+source_file="res://Music/FlagWindD4C.mp3"
+dest_files=[ "res://.import/FlagWindD4C.mp3-84f9648b2a7c4fe77ce189e13dc1770e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

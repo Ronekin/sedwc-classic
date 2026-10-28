@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PunchPopadanie.mp3-fe30c059efb98ec9009ebc666d8cc46d.mp3str"
+
+[deps]
+
+source_file="res://Music/PunchPopadanie.mp3"
+dest_files=[ "res://.import/PunchPopadanie.mp3-fe30c059efb98ec9009ebc666d8cc46d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

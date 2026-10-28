@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GyroNyoHo.mp3-ae1e7a281351b5a6db6fb89ed1a56e67.mp3str"
+
+[deps]
+
+source_file="res://Music/GyroNyoHo.mp3"
+dest_files=[ "res://.import/GyroNyoHo.mp3-ae1e7a281351b5a6db6fb89ed1a56e67.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

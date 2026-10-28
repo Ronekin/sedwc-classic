@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/D4Csummon.mp3-c541cbf5e1add7b5a40861a359550745.mp3str"
+
+[deps]
+
+source_file="res://Music/D4Csummon.mp3"
+dest_files=[ "res://.import/D4Csummon.mp3-c541cbf5e1add7b5a40861a359550745.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

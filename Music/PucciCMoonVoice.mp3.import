@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PucciCMoonVoice.mp3-4364ee0e965d2bc81dfdcbf061839301.mp3str"
+
+[deps]
+
+source_file="res://Music/PucciCMoonVoice.mp3"
+dest_files=[ "res://.import/PucciCMoonVoice.mp3-4364ee0e965d2bc81dfdcbf061839301.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

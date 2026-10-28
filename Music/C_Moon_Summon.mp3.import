@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/C_Moon_Summon.mp3-eed9e4e284a19813f9f45939b4d2234d.mp3str"
+
+[deps]
+
+source_file="res://Music/C_Moon_Summon.mp3"
+dest_files=[ "res://.import/C_Moon_Summon.mp3-eed9e4e284a19813f9f45939b4d2234d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

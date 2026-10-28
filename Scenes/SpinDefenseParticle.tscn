@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Textures/LightParticles.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/HealthUpParticles.gd" type="Script" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+light_mode = 2
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, -360 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.662921, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 50, 25, 0 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 90.0
+gravity = Vector3( 100, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_curve = SubResource( 3 )
+scale = 0.05
+scale_curve = SubResource( 5 )
+
+[sub_resource type="CircleShape2D" id=7]
+
+[node name="Particles2D" type="Particles2D"]
+modulate = Color( 0.682353, 0.839216, 0.0235294, 1 )
+material = SubResource( 1 )
+position = Vector2( 0, 22 )
+rotation = 4.71239
+scale = Vector2( 0.5, 0.25 )
+amount = 25
+lifetime = 5.0
+fixed_fps = 60
+process_material = SubResource( 6 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -41, 3.8147e-05 )
+shape = SubResource( 7 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

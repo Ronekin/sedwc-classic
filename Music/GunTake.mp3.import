@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GunTake.mp3-0f0fd5d21c4eb5754d972e6c8285ed5c.mp3str"
+
+[deps]
+
+source_file="res://Music/GunTake.mp3"
+dest_files=[ "res://.import/GunTake.mp3-0f0fd5d21c4eb5754d972e6c8285ed5c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

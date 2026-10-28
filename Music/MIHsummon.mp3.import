@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MIHsummon.mp3-4a1b1493708731b7bf8988110eb6d8bd.mp3str"
+
+[deps]
+
+source_file="res://Music/MIHsummon.mp3"
+dest_files=[ "res://.import/MIHsummon.mp3-4a1b1493708731b7bf8988110eb6d8bd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

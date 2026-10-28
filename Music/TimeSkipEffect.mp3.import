@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TimeSkipEffect.mp3-493d210f9dc0ed869a5483c41d30f698.mp3str"
+
+[deps]
+
+source_file="res://Music/TimeSkipEffect.mp3"
+dest_files=[ "res://.import/TimeSkipEffect.mp3-493d210f9dc0ed869a5483c41d30f698.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

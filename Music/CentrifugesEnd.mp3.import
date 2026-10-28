@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CentrifugesEnd.mp3-ea61d3a4ea7b6f270a062443237734bd.mp3str"
+
+[deps]
+
+source_file="res://Music/CentrifugesEnd.mp3"
+dest_files=[ "res://.import/CentrifugesEnd.mp3-ea61d3a4ea7b6f270a062443237734bd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

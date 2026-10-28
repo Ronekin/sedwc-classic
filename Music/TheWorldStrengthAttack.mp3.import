@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TheWorldStrengthAttack.mp3-db3f4eec4af806e34600a64fc44f1c51.mp3str"
+
+[deps]
+
+source_file="res://Music/TheWorldStrengthAttack.mp3"
+dest_files=[ "res://.import/TheWorldStrengthAttack.mp3-db3f4eec4af806e34600a64fc44f1c51.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

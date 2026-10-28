@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WoU_Voice2.mp3-9e6ff4bef0251351851c2a2a5ffc2ae3.mp3str"
+
+[deps]
+
+source_file="res://Music/WoU_Voice2.mp3"
+dest_files=[ "res://.import/WoU_Voice2.mp3-9e6ff4bef0251351851c2a2a5ffc2ae3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

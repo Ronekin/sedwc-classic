@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BackgroundVFX.mp3-d1dade6f24590f3f8da5a3261fe5ff40.mp3str"
+
+[deps]
+
+source_file="res://Music/BackgroundVFX.mp3"
+dest_files=[ "res://.import/BackgroundVFX.mp3-d1dade6f24590f3f8da5a3261fe5ff40.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

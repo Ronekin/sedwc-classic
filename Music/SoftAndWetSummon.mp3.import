@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SoftAndWetSummon.mp3-2b4565500eb96c293989d8a852249f1a.mp3str"
+
+[deps]
+
+source_file="res://Music/SoftAndWetSummon.mp3"
+dest_files=[ "res://.import/SoftAndWetSummon.mp3-2b4565500eb96c293989d8a852249f1a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

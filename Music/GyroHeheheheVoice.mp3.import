@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GyroHeheheheVoice.mp3-f9c303a08ab3e8dcaa3648f3ed26b821.mp3str"
+
+[deps]
+
+source_file="res://Music/GyroHeheheheVoice.mp3"
+dest_files=[ "res://.import/GyroHeheheheVoice.mp3-f9c303a08ab3e8dcaa3648f3ed26b821.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shadow_tw_summon.mp3-2966d3aa1b1d34d78175855ee8488a09.mp3str"
+
+[deps]
+
+source_file="res://Music/shadow_tw_summon.mp3"
+dest_files=[ "res://.import/shadow_tw_summon.mp3-2966d3aa1b1d34d78175855ee8488a09.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

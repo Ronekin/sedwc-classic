@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RokakakaActivateSound.mp3-9a4bfce4d3439f6fa3ca4d3ab3657457.mp3str"
+
+[deps]
+
+source_file="res://Music/RokakakaActivateSound.mp3"
+dest_files=[ "res://.import/RokakakaActivateSound.mp3-9a4bfce4d3439f6fa3ca4d3ab3657457.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

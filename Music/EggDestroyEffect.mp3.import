@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EggDestroyEffect.mp3-c81354c8278c8d73cfe4125c2d9192a6.mp3str"
+
+[deps]
+
+source_file="res://Music/EggDestroyEffect.mp3"
+dest_files=[ "res://.import/EggDestroyEffect.mp3-c81354c8278c8d73cfe4125c2d9192a6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

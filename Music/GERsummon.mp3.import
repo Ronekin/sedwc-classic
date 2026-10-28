@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GERsummon.mp3-bc7649e2388f0764fe2a2e84393a0773.mp3str"
+
+[deps]
+
+source_file="res://Music/GERsummon.mp3"
+dest_files=[ "res://.import/GERsummon.mp3-bc7649e2388f0764fe2a2e84393a0773.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

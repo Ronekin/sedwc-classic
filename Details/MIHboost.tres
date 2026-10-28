@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+//float power = 0.0
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	float da = (float(int(TIME) + 1) - TIME);
+	float hundredth_digit = float(int(UV.x * 5.0 * 100.0) % 10);
+	float hundredth_digit1 = float(int(TIME * 100.0) % 10);
+	if (abs(hundredth_digit - hundredth_digit1 ) < 0.6 ) {
+		color = texture(TEXTURE, (UV )+vec2(0.001, 0.003)) * 2.0;
+		color.rgb = vec3(0.7);
+	}
+	else {
+		if (color.a > 0.0) {
+
+			color *= 0.6;
+			color.a = 1.0;
+	} }
+
+	COLOR = color;
+
+}"
+
+[resource]
+shader = SubResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BuySound.mp3-64c619c75871e2784797b82131c798e0.mp3str"
+
+[deps]
+
+source_file="res://Music/BuySound.mp3"
+dest_files=[ "res://.import/BuySound.mp3-64c619c75871e2784797b82131c798e0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

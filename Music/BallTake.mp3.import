@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BallTake.mp3-6b917784a76eb5e3b4f5075c9a167624.mp3str"
+
+[deps]
+
+source_file="res://Music/BallTake.mp3"
+dest_files=[ "res://.import/BallTake.mp3-6b917784a76eb5e3b4f5075c9a167624.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

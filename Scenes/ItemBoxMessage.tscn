@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Textures/ItemBox.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "START"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="ItemBoxMessage" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 320, 61 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Sprite"]
+margin_left = -45.0
+margin_top = -14.0
+margin_right = 56.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_fonts/font = SubResource( 1 )
+text = "заряж.пробка"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Sprite"]
+modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
+margin_left = -52.0
+margin_top = -5.99998
+margin_right = 78.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_constants/line_spacing = -2
+custom_fonts/font = SubResource( 1 )
+text = "квестовый"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "START"
+anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+anims/START = SubResource( 4 )

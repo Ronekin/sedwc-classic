@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BarrageSCREndd.mp3-bd8b822c3dadf330a023c04da9bd1f8d.mp3str"
+
+[deps]
+
+source_file="res://Music/BarrageSCREndd.mp3"
+dest_files=[ "res://.import/BarrageSCREndd.mp3-bd8b822c3dadf330a023c04da9bd1f8d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

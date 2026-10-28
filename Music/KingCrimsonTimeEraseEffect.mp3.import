@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KingCrimsonTimeEraseEffect.mp3-ad0abafea4a050c9525fdbc68890fc66.mp3str"
+
+[deps]
+
+source_file="res://Music/KingCrimsonTimeEraseEffect.mp3"
+dest_files=[ "res://.import/KingCrimsonTimeEraseEffect.mp3-ad0abafea4a050c9525fdbc68890fc66.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

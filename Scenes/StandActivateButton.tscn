@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/Stand_Button_Default.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/StandActivateButton.gd" type="Script" id=3]
+
+[node name="TextureButton" type="TouchScreenButton"]
+normal = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="." to="." method="_on_TextureButton_pressed"]

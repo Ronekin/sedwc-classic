@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/UshaVoice.mp3-e33363fe4a4b669e9357a3021c95d4f1.mp3str"
+
+[deps]
+
+source_file="res://Music/UshaVoice.mp3"
+dest_files=[ "res://.import/UshaVoice.mp3-e33363fe4a4b669e9357a3021c95d4f1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

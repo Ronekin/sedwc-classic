@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StandSummonEffect.mp3-7315de4c2f3fe1dd81bc86dceac761e7.mp3str"
+
+[deps]
+
+source_file="res://Music/StandSummonEffect.mp3"
+dest_files=[ "res://.import/StandSummonEffect.mp3-7315de4c2f3fe1dd81bc86dceac761e7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

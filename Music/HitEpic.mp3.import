@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HitEpic.mp3-3a1f96860d28fcf422d1f11b0d4d7ee8.mp3str"
+
+[deps]
+
+source_file="res://Music/HitEpic.mp3"
+dest_files=[ "res://.import/HitEpic.mp3-3a1f96860d28fcf422d1f11b0d4d7ee8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

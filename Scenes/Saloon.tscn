@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Textures/LegacyImage/saloon.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Shadow_House.png" type="Texture" id=2]
+[ext_resource path="res://Textures/LegacyImage/SaloonDoor.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Outline.tres" type="Shader" id=4]
+[ext_resource path="res://Scenes/Cafe.gd" type="Script" id=5]
+[ext_resource path="res://GeneralGameScenes/Podskazka.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 31.0
+height = 265.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 17.0003, 152 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 4 )
+shader_param/width = 0.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Collision"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3:material:shader_param/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "NonCollision"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3:material:shader_param/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3:material:shader_param/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 32.5, 47 )
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["Build"]]
+position = Vector2( 1, 3 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, -18 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 1.00007, -3.99974 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 92, 73 )
+z_index = 2
+texture = ExtResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 12, 7 )
+scale = Vector2( 1.07826, 1.06452 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+material = SubResource( 5 )
+position = Vector2( 6, -33 )
+z_index = 1
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "NonCollision"
+anims/Collision = SubResource( 6 )
+anims/NonCollision = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[node name="Area2D" type="Area2D" parent="." groups=["Spidwagon"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Spidwagon"]]
+position = Vector2( 6, -34 )
+shape = SubResource( 9 )
+
+[node name="Podskazka" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 7, -101 )
+z_index = 2
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

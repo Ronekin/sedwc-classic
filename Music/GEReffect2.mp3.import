@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GEReffect2.mp3-a743877d9009df6f01343eff44ee9108.mp3str"
+
+[deps]
+
+source_file="res://Music/GEReffect2.mp3"
+dest_files=[ "res://.import/GEReffect2.mp3-a743877d9009df6f01343eff44ee9108.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

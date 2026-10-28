@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/QuestCompleteSound.mp3-4beeb2530f6272cc83976c533eb7a156.mp3str"
+
+[deps]
+
+source_file="res://Music/QuestCompleteSound.mp3"
+dest_files=[ "res://.import/QuestCompleteSound.mp3-4beeb2530f6272cc83976c533eb7a156.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

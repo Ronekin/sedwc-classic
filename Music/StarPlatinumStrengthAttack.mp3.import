@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StarPlatinumStrengthAttack.mp3-bf91ab1310fd9f39ed23ab6d44cdc313.mp3str"
+
+[deps]
+
+source_file="res://Music/StarPlatinumStrengthAttack.mp3"
+dest_files=[ "res://.import/StarPlatinumStrengthAttack.mp3-bf91ab1310fd9f39ed23ab6d44cdc313.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

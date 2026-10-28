@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KaikaiKitanTheme.mp3-687144bc468ac3c8831f25f43ed0276b.mp3str"
+
+[deps]
+
+source_file="res://Music/KaikaiKitanTheme.mp3"
+dest_files=[ "res://.import/KaikaiKitanTheme.mp3-687144bc468ac3c8831f25f43ed0276b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

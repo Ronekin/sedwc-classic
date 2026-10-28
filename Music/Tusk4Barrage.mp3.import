@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tusk4Barrage.mp3-c04f59034330c05b612ff27457b027fc.mp3str"
+
+[deps]
+
+source_file="res://Music/Tusk4Barrage.mp3"
+dest_files=[ "res://.import/Tusk4Barrage.mp3-c04f59034330c05b612ff27457b027fc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

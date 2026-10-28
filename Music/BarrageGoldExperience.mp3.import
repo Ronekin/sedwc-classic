@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BarrageGoldExperience.mp3-a6945a05ec6f1c256510610787075b20.mp3str"
+
+[deps]
+
+source_file="res://Music/BarrageGoldExperience.mp3"
+dest_files=[ "res://.import/BarrageGoldExperience.mp3-a6945a05ec6f1c256510610787075b20.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

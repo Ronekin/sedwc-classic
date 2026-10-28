@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ManVoice_0.mp3-c3433fac6f9b8a1b6b84a4ef6a6bd0ab.mp3str"
+
+[deps]
+
+source_file="res://Music/ManVoice_0.mp3"
+dest_files=[ "res://.import/ManVoice_0.mp3-c3433fac6f9b8a1b6b84a4ef6a6bd0ab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HitEpicPau.mp3-83d0c83d4e12369f699e95dc13e32b94.mp3str"
+
+[deps]
+
+source_file="res://Music/HitEpicPau.mp3"
+dest_files=[ "res://.import/HitEpicPau.mp3-83d0c83d4e12369f699e95dc13e32b94.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Textures/SpinBall.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/SpinGoldBall.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Line2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/spinpusk.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 5.0
+
+[node name="SpinBall" type="KinematicBody2D"]
+z_index = 3
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="Spinpusk" type="Sprite" parent="Sprite"]
+rotation = 0.0818051
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Idle = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="EnemyCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCheck"]
+shape = SubResource( 3 )
+
+[node name="PlayerCheclk" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheclk"]
+shape = SubResource( 3 )
+
+[node name="Line2D" parent="." instance=ExtResource( 3 )]
+default_color = Color( 0.870588, 0.835294, 0, 1 )
+leng = 10
+
+[connection signal="area_entered" from="EnemyCheck" to="." method="_on_EnemyCheck_area_entered"]
+[connection signal="area_entered" from="EnemyCheck" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="PlayerCheclk" to="." method="_on_PlayerCheclk_area_entered"]

@@ -1,0 +1,771 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Scenes/HpPlayerBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/JoystickV2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/DashButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/BlockButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/DopButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://FPS_Label.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/TechnicButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Textures/UI/BERSERK.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/PlayerBigAttackButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Scenes/Indicators.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/TSTimer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Textures/PanelTutorial.png" type="Texture" id=13]
+[ext_resource path="res://Textures/TrebovaniaPanel.png" type="Texture" id=14]
+[ext_resource path="res://Textures/Details/Empty.png" type="Texture" id=15]
+[ext_resource path="res://Textures/Enemys/JotaroPart6.png" type="Texture" id=16]
+[ext_resource path="res://Textures/PanelQuestion.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=20]
+[ext_resource path="res://Scenes/StandActivateButton.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/StandAttackButton.tscn" type="PackedScene" id=30]
+
+[sub_resource type="Shader" id=3]
+code = "// Basado en: https://www.shadertoy.com/view/wsfcDM
+
+shader_type canvas_item;
+
+uniform float Speed : hint_range(-10.0, 5.0) = 0.5;
+uniform float LineLength : hint_range(0.0, 4.0) = 2.0;
+uniform vec4 LineColor : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float Softness : hint_range(0.0, 1.0) = 0.1;
+uniform float Weirdness : hint_range(0.0, 1.0) = 0.1;
+
+uniform float Radius : hint_range(0.0, 2.0) = 1.3;
+uniform float Freq  : hint_range(3.0, 50.0) = 10.0;
+
+float hash(vec2 v) {
+    return fract(sin(dot(v, vec2(89.44, 19.36))) * 22189.22);
+}
+
+float iHash(vec2 v, vec2 r) {
+    vec4 h = vec4(
+        hash(floor(v * r + vec2(0.0, 0.0)) / r),
+        hash(floor(v * r + vec2(0.0, 1.0)) / r),
+        hash(floor(v * r + vec2(1.0, 0.0)) / r),
+        hash(floor(v * r + vec2(1.0, 1.0)) / r)
+    );
+    vec2 ip = smoothstep(vec2(0.0), vec2(1.0), mod(v * r, 1.0));
+    return mix(mix(h.x, h.y, ip.y), mix(h.z, h.w, ip.y), ip.x);
+}
+
+float noise(vec2 v) {
+    float sum = 0.0;
+    for (int i = 1; i < 7; i++) {
+        sum += iHash(v + vec2(float(i)), vec2(2.0 * pow(2.0, float(i)))) / pow(2.0, float(i));
+    }
+    return sum;
+}
+
+vec2 getuv(vec2 p, vec2 resolution) {
+    return vec2(0.5 + (p.x - 0.5) * (resolution.x / resolution.y), p.y);
+}
+
+void fragment() {
+    vec2 resolution = 1.0 / SCREEN_PIXEL_SIZE;
+    vec2 fragCoord = UV * resolution;
+
+    // Aspect ratio aware UV
+    vec2 uv = (fragCoord * 2.0 - resolution) / resolution;
+
+    vec2 puv = vec2(
+        Weirdness * length(uv) + Speed * TIME,
+        Freq * atan(uv.y, uv.x)
+    );
+
+    float value = noise(puv);
+    value = length(uv) - Radius - LineLength * (value - 0.5);
+    value = smoothstep(-Softness, Softness, value);
+
+    //vec4 tex = texture(TEXTURE, getuv(fragCoord / resolution, resolution));
+    vec4 tex = texture(TEXTURE, UV);
+    vec3 color = mix(tex.rgb, LineColor.rgb, value * LineColor.a);
+	float aaa = 1.0;
+	if (color != vec3(1, 1, 1)) {
+		aaa = 0.0;
+	}
+    COLOR = vec4(color, aaa);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 3 )
+shader_param/Speed = 3.0
+shader_param/LineLength = 2.0
+shader_param/LineColor = Color( 1, 1, 1, 1 )
+shader_param/Softness = 0.1
+shader_param/Weirdness = 0.0
+shader_param/Radius = 1.194
+shader_param/Freq = 10.0
+
+[sub_resource type="DynamicFont" id=11]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "BerserkMode"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Berserk:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.639216 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Berserk:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "None"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Berserk:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=7]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Show"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.482353 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ToMenu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 0.116629, 1 ),
+"update": 0,
+"values": [ Vector2( -699, 38 ), Vector2( -158, 38 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NextStage:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 0.116629, 1 ),
+"update": 0,
+"values": [ Vector2( 585, 78 ), Vector2( 17, 78 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("NextStage/Node2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.3, 1e-05 ), Vector2( 1.3, 0 ), Vector2( 1.3, 1.3 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("NextStage/Node2D/EnemyTexture:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 5.96046e-07 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../../Right_Less:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../../Left_Less:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../../Left_Center:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../../TextureProgress:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../../Indicators:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Text:rect_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.05, 0.2, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1e-05, 1e-05 ), Vector2( 2.7, 2.7 ), Vector2( 2, 2 ), Vector2( 2.3, 2.3 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("NextStage/Node2D/EnemyTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 5.96046e-07 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Right_Less:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../Left_Less:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../Left_Center:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../TextureProgress:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../../Indicators:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_vertical_guides_": [ 320.0 ]
+}
+
+[node name="Eff" type="Sprite" parent="."]
+visible = false
+material = SubResource( 2 )
+position = Vector2( 312, 179 )
+scale = Vector2( 11.0938, 5.8125 )
+texture = ExtResource( 15 )
+
+[node name="Right_Less" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -625.0
+margin_top = -341.0
+margin_right = 15.0
+margin_bottom = 19.0
+
+[node name="TextureButton" parent="Right_Less" instance=ExtResource( 28 )]
+position = Vector2( 567, 288 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="TextureButton3" parent="Right_Less" instance=ExtResource( 30 )]
+position = Vector2( 451, 288 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="TouchScreenButton" parent="Right_Less" instance=ExtResource( 3 )]
+position = Vector2( 335, 288 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="TouchScreenButton2" parent="Right_Less" instance=ExtResource( 4 )]
+position = Vector2( 509, 288 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="TouchScreenButton3" parent="Right_Less" instance=ExtResource( 5 )]
+position = Vector2( 572, 239 )
+attack_id = 1
+
+[node name="TouchScreenButton4" parent="Right_Less" instance=ExtResource( 5 )]
+position = Vector2( 520, 239 )
+attack_id = 2
+
+[node name="TouchScreenButton5" parent="Right_Less" instance=ExtResource( 5 )]
+position = Vector2( 468, 239 )
+attack_id = 3
+
+[node name="TouchScreenButton6" parent="Right_Less" instance=ExtResource( 5 )]
+position = Vector2( 416, 239 )
+attack_id = 4
+
+[node name="TouchScreenButton7" parent="Right_Less" instance=ExtResource( 5 )]
+position = Vector2( 363, 239 )
+attack_id = 5
+
+[node name="TouchScreenButton8" parent="Right_Less" instance=ExtResource( 5 )]
+position = Vector2( 417, 189 )
+attack_id = 6
+
+[node name="TouchScreenButton9" parent="Right_Less" instance=ExtResource( 5 )]
+position = Vector2( 364, 189 )
+attack_id = 7
+
+[node name="DopButton4" parent="Right_Less" instance=ExtResource( 7 )]
+position = Vector2( 571, 189 )
+
+[node name="DopButton2" parent="Right_Less" instance=ExtResource( 7 )]
+position = Vector2( 520, 189 )
+attack_id = 2
+
+[node name="DopButton3" parent="Right_Less" instance=ExtResource( 7 )]
+position = Vector2( 469, 189 )
+attack_id = 3
+
+[node name="DopButton5" parent="Right_Less" instance=ExtResource( 7 )]
+position = Vector2( 572, 141 )
+attack_id = 4
+
+[node name="BigAttackTextureButton" parent="Right_Less" instance=ExtResource( 9 )]
+position = Vector2( 393, 288 )
+scale = Vector2( 1.1, 1.1 )
+
+[node name="RaceButtons" type="HBoxContainer" parent="Right_Less"]
+margin_left = 410.0
+margin_top = 93.0
+margin_right = 622.0
+margin_bottom = 156.0
+custom_constants/separation = 52
+alignment = 2
+
+[node name="Control4" type="Control" parent="Right_Less/RaceButtons"]
+margin_left = 56.0
+margin_right = 56.0
+margin_bottom = 63.0
+
+[node name="DopButton7" parent="Right_Less/RaceButtons/Control4" instance=ExtResource( 7 )]
+modulate = Color( 0.976471, 0.498039, 1, 1 )
+scale = Vector2( -1, 1 )
+attack_id = -4
+
+[node name="Control3" type="Control" parent="Right_Less/RaceButtons"]
+margin_left = 108.0
+margin_right = 108.0
+margin_bottom = 63.0
+
+[node name="DopButton7" parent="Right_Less/RaceButtons/Control3" instance=ExtResource( 7 )]
+modulate = Color( 0.976471, 0.498039, 1, 1 )
+scale = Vector2( -1, 1 )
+attack_id = -3
+
+[node name="Control" type="Control" parent="Right_Less/RaceButtons"]
+margin_left = 160.0
+margin_right = 160.0
+margin_bottom = 63.0
+
+[node name="DopButton7" parent="Right_Less/RaceButtons/Control" instance=ExtResource( 7 )]
+modulate = Color( 0.976471, 0.498039, 1, 1 )
+scale = Vector2( -1, 1 )
+attack_id = -2
+
+[node name="Control2" type="Control" parent="Right_Less/RaceButtons"]
+margin_left = 212.0
+margin_right = 212.0
+margin_bottom = 63.0
+
+[node name="DopButton6" parent="Right_Less/RaceButtons/Control2" instance=ExtResource( 7 )]
+modulate = Color( 0.976471, 0.498039, 1, 1 )
+scale = Vector2( -1, 1 )
+attack_id = -1
+
+[node name="Left_Less" type="Control" parent="."]
+anchor_top = 0.00277778
+anchor_right = 1.00156
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Exit" type="TouchScreenButton" parent="Left_Less"]
+visible = false
+position = Vector2( 284, 11 )
+normal = ExtResource( 17 )
+
+[node name="General" type="Label" parent="Left_Less/Exit"]
+margin_left = -101.0
+margin_top = 3.0
+margin_right = 174.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 11 )
+text = "сдаться"
+align = 1
+
+[node name="Control" parent="Left_Less" instance=ExtResource( 2 )]
+margin_left = 12.0
+margin_top = -353.0
+margin_right = 12.0
+margin_bottom = -353.0
+
+[node name="FPS" parent="Left_Less" instance=ExtResource( 6 )]
+
+[node name="Left_Center" type="Control" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -180.0
+margin_right = 40.0
+margin_bottom = -140.0
+
+[node name="TextureProgress" parent="." instance=ExtResource( 1 )]
+margin_left = 12.0
+margin_top = 10.0
+margin_right = 164.0
+margin_bottom = 29.0
+rect_scale = Vector2( 1.2, 1.2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -640.0
+margin_right = -600.0
+margin_bottom = 40.0
+
+[node name="TSTimer" parent="Control" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 608, 96 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 1233.0
+margin_bottom = 616.0
+color = Color( 1, 0, 0, 1 )
+
+[node name="Indicators" parent="." instance=ExtResource( 11 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Center" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( -255, 20 )
+
+[node name="Berserk" type="Sprite" parent="Center"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 9, 21 )
+scale = Vector2( 2.8, 2.9 )
+z_index = -2
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Center"]
+autoplay = "None"
+anims/BerserkMode = SubResource( 4 )
+anims/None = SubResource( 5 )
+
+[node name="AfterWin" type="Control" parent="Center"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Center/AfterWin"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -523.0
+margin_top = -200.0
+margin_right = 630.0
+margin_bottom = 246.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ToMenu" type="Control" parent="Center/AfterWin"]
+margin_left = -158.0
+margin_top = 38.0
+margin_right = -118.0
+margin_bottom = 78.0
+
+[node name="ToMenu" type="TouchScreenButton" parent="Center/AfterWin/ToMenu"]
+modulate = Color( 1, 0.780392, 0, 1 )
+scale = Vector2( 1.4, 1.4 )
+normal = ExtResource( 13 )
+
+[node name="Text" type="Label" parent="Center/AfterWin/ToMenu"]
+margin_left = 30.0
+margin_right = 151.0
+margin_bottom = 31.0
+rect_scale = Vector2( 1.4, 1.4 )
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 6 )
+text = "TO MENU"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="NextStage" type="Control" parent="Center/AfterWin"]
+margin_left = 17.0
+margin_top = 78.0
+margin_right = 57.0
+margin_bottom = 118.0
+
+[node name="Node2D" type="Node2D" parent="Center/AfterWin/NextStage"]
+position = Vector2( 23, 34 )
+scale = Vector2( 1.3, 1.3 )
+
+[node name="TrebovaniaPanel" type="Sprite" parent="Center/AfterWin/NextStage/Node2D"]
+position = Vector2( 52.6232, -59.5094 )
+scale = Vector2( 0.577682, 0.719814 )
+texture = ExtResource( 14 )
+
+[node name="EnemyTexture" type="Sprite" parent="Center/AfterWin/NextStage/Node2D"]
+modulate = Color( 1, 1, 1, 5.96046e-07 )
+position = Vector2( 50.1923, -86.7308 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 16 )
+hframes = 8
+
+[node name="Name" type="Label" parent="Center/AfterWin/NextStage/Node2D"]
+margin_left = -5.80769
+margin_top = -45.7308
+margin_right = 157.192
+margin_bottom = 20.2692
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 7 )
+text = "ист. джотаро
+hp 160"
+align = 1
+
+[node name="NextStage" type="TouchScreenButton" parent="Center/AfterWin/NextStage"]
+modulate = Color( 1, 0.780392, 0, 1 )
+scale = Vector2( 1.4, 1.4 )
+normal = ExtResource( 13 )
+
+[node name="Text" type="Label" parent="Center/AfterWin/NextStage"]
+margin_left = 30.0
+margin_right = 151.0
+margin_bottom = 31.0
+rect_scale = Vector2( 1.4, 1.4 )
+rect_pivot_offset = Vector2( 61.5999, -6.40001 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 6 )
+text = "next stage"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Center/AfterWin"]
+autoplay = "Start"
+anims/RESET = SubResource( 10 )
+anims/Show = SubResource( 8 )
+anims/Start = SubResource( 9 )
+
+[node name="Text" type="Label" parent="Center/AfterWin"]
+margin_left = -141.0
+margin_top = -137.0
+margin_right = 175.0
+margin_bottom = -97.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 158, 20 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 6 )
+text = "этап 5 пройден!"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="stand_activate" from="Right_Less/TextureButton" to="." method="_on_TextureButton_stand_activate"]
+[connection signal="attack_activate" from="Right_Less/TextureButton3" to="." method="_on_TextureButton3_attack_activate"]
+[connection signal="pressed" from="Left_Less/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="use_move_vector" from="Left_Less/Control" to="." method="_on_Control_use_move_vector"]
+[connection signal="pressed" from="Center/AfterWin/ToMenu/ToMenu" to="." method="ToMenu_Pressed"]
+[connection signal="pressed" from="Center/AfterWin/NextStage/NextStage" to="." method="NextStage_Pressed"]

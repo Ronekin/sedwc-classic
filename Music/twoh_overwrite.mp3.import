@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/twoh_overwrite.mp3-b644505be83eaf912754879f061e7589.mp3str"
+
+[deps]
+
+source_file="res://Music/twoh_overwrite.mp3"
+dest_files=[ "res://.import/twoh_overwrite.mp3-b644505be83eaf912754879f061e7589.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

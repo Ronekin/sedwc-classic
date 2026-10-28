@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TheWorldSummon.mp3-af9143d8498aae6e4a99177086e64e3a.mp3str"
+
+[deps]
+
+source_file="res://Music/TheWorldSummon.mp3"
+dest_files=[ "res://.import/TheWorldSummon.mp3-af9143d8498aae6e4a99177086e64e3a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GeneralGameScenes/PanelTutorial.gd" type="Script" id=1]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Textures/PanelTutorial.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Outline.tres" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.529412 )
+font_data = ExtResource( 2 )
+
+[node name="PanelTutorial" type="Control"]
+script = ExtResource( 1 )
+id = 1.1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+material = SubResource( 2 )
+normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="TouchScreenButton2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 122.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="TouchScreenButton"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 122.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="pressed" from="TouchScreenButton2" to="." method="_on_TouchScreenButton_pressed"]

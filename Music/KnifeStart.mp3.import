@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KnifeStart.mp3-3ea1b2af495203605113e0e7171d6b5e.mp3str"
+
+[deps]
+
+source_file="res://Music/KnifeStart.mp3"
+dest_files=[ "res://.import/KnifeStart.mp3-3ea1b2af495203605113e0e7171d6b5e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

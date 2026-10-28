@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BarrageStarPlatinum.mp3-91d548a1c8a57e2e6efd8edc72368f3a.mp3str"
+
+[deps]
+
+source_file="res://Music/BarrageStarPlatinum.mp3"
+dest_files=[ "res://.import/BarrageStarPlatinum.mp3-91d548a1c8a57e2e6efd8edc72368f3a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

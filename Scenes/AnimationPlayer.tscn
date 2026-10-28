@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GeneralGameScenes/DayNightTimer.gd" type="Script" id=1]
+[ext_resource path="res://Music/BackgroundVFX.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Music/Night.mp3" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=33]
+resource_name = "DayNightCycle"
+length = 360.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40.5, 90, 120, 220.3, 259.6, 300.5, 360 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.745098, 0.447059, 0.694118, 1 ), Color( 0.4, 0.388235, 0.819608, 1 ), Color( 0.4, 0.388235, 0.819608, 1 ), Color( 0.894118, 0.584314, 0.521569, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("CanvasModulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 110, 120, 250, 280 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "day"
+}, {
+"args": [  ],
+"method": "zakat"
+}, {
+"args": [  ],
+"method": "night"
+}, {
+"args": [  ],
+"method": "rassvet"
+}, {
+"args": [  ],
+"method": "day"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasModulate/AudioStreamPlayer:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 109.9, 220 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasModulate/AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 27.2, 54.4, 81.7, 109.9, 137.3, 164.5, 191.7, 220.1, 247.2, 274.4, 301.7, 328.7, 355.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true, true, true, true, true, true, true, true, true, true, true ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "MIH"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.4, 4, 6.1, 8, 9.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.745098, 0.447059, 0.694118, 1 ), Color( 0.4, 0.388235, 0.819608, 1 ), Color( 0.4, 0.388235, 0.819608, 1 ), Color( 0.894118, 0.584314, 0.521569, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasModulate/AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasModulate/AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+root_node = NodePath("../..")
+autoplay = "DayNightCycle"
+playback_speed = 0.5
+anims/DayNightCycle = SubResource( 33 )
+anims/MIH = SubResource( 36 )
+anims/RESET = SubResource( 34 )
+script = ExtResource( 1 )
+
+[connection signal="tree_exited" from="." to="." method="_on_AnimationPlayer_tree_exited"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TWOHlighting.mp3-a6dc5eecd165714550fd7dfdac4228c0.mp3str"
+
+[deps]
+
+source_file="res://Music/TWOHlighting.mp3"
+dest_files=[ "res://.import/TWOHlighting.mp3-a6dc5eecd165714550fd7dfdac4228c0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

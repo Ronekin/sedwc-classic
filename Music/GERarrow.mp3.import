@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GERarrow.mp3-d79e04d8df44cf1f25092c863aa26216.mp3str"
+
+[deps]
+
+source_file="res://Music/GERarrow.mp3"
+dest_files=[ "res://.import/GERarrow.mp3-d79e04d8df44cf1f25092c863aa26216.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

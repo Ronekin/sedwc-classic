@@ -1,0 +1,355 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Textures/WinPanel1.png" type="Texture" id=1]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Textures/RewardPanel1.png" type="Texture" id=3]
+[ext_resource path="res://GeneralGameScenes/WinScreen.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.26087, 0.521739, 0.695652 )
+colors = PoolColorArray( 0.134432, 0, 0.265625, 1, 0, 0, 0, 1, 0.085083, 0, 0.132813, 1 )
+
+[sub_resource type="GradientTexture2D" id=9]
+gradient = SubResource( 8 )
+fill_to = Vector2( 1, 0.931944 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle"
+length = 4.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("WinPanel/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WinPanel/Label2:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WinPanel/Label3:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("WinPanel/Label4:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WinPanel/Label5:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 8, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RewardPanel/Reward:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("WinPanel/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WinPanel/Label2:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WinPanel/Label3:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("WinPanel/Label4:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WinPanel/Label5:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RewardPanel/Reward:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/Back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.482353 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/Back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+margin_left = -354.0
+margin_top = -254.0
+margin_right = 1174.0
+margin_bottom = 730.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -185.0
+margin_top = -42.0
+margin_right = -121.0
+margin_bottom = 22.0
+rect_scale = Vector2( 16, 7 )
+texture = SubResource( 9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -193.0
+margin_right = 320.0
+margin_bottom = 170.0
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CanvasLayer/Control"]
+playback_speed = 1.2
+anims/Idle = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control"]
+root_node = NodePath("../../..")
+autoplay = "Idle"
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="WinPanel" type="Sprite" parent="CanvasLayer/Control"]
+position = Vector2( 320, 177 )
+texture = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/WinPanel"]
+visible = false
+margin_left = -181.0
+margin_top = -58.0
+margin_right = 183.0
+margin_bottom = -42.0
+custom_fonts/font = SubResource( 1 )
+percent_visible = 0.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/WinPanel"]
+visible = false
+margin_left = -181.0
+margin_top = -33.0
+margin_right = 183.0
+margin_bottom = -17.0
+custom_fonts/font = SubResource( 1 )
+percent_visible = 0.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/WinPanel"]
+visible = false
+margin_left = -181.0
+margin_top = -8.0
+margin_right = 183.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+percent_visible = 0.0
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control/WinPanel"]
+visible = false
+margin_left = -181.0
+margin_top = 17.0
+margin_right = 183.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+percent_visible = 0.0
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control/WinPanel"]
+visible = false
+margin_left = -181.0
+margin_top = 42.0
+margin_right = 183.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 1 )
+percent_visible = 0.0
+
+[node name="EnemyDefeated" type="Label" parent="CanvasLayer/Control"]
+margin_left = 264.0
+margin_top = 87.0
+margin_right = 376.0
+margin_bottom = 99.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 56, 7 )
+custom_fonts/font = SubResource( 2 )
+text = "ВРАГ ПОБЕЖДЕН!"
+
+[node name="RewardPanel" type="Sprite" parent="CanvasLayer/Control"]
+position = Vector2( 320, 260 )
+texture = ExtResource( 3 )
+
+[node name="RewardName" type="Label" parent="CanvasLayer/Control/RewardPanel"]
+margin_left = -41.0
+margin_top = -53.0
+margin_right = 15.0
+margin_bottom = -41.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 3 )
+text = "награда"
+
+[node name="Reward" type="Label" parent="CanvasLayer/Control/RewardPanel"]
+margin_left = -188.0
+margin_top = -31.0
+margin_right = 186.0
+margin_bottom = 9.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 0.0
+
+[node name="Back" type="Label" parent="CanvasLayer/Control"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 171.0
+margin_top = 276.0
+margin_right = 371.0
+margin_bottom = 288.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 2 )
+text = "нажмите что-бы продолжить"
+
+[node name="PropDamage" type="Tween" parent="."]
+
+[node name="LostHealth" type="Tween" parent="."]
+
+[node name="FightTime" type="Tween" parent="."]
+
+[node name="PercentPopadania" type="Tween" parent="."]
+
+[node name="GeneralDamage" type="Tween" parent="."]
+
+[node name="Reward" type="Tween" parent="."]
+
+[connection signal="animation_finished" from="CanvasLayer/Control/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]

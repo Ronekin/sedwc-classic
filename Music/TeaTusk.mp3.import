@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TeaTusk.mp3-bde9adbc8f39fea516191e9b0948a301.mp3str"
+
+[deps]
+
+source_file="res://Music/TeaTusk.mp3"
+dest_files=[ "res://.import/TeaTusk.mp3-bde9adbc8f39fea516191e9b0948a301.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

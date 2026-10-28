@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GoldExpEffect.mp3-c918a01721f5f486339bddf630fc5e7a.mp3str"
+
+[deps]
+
+source_file="res://Music/GoldExpEffect.mp3"
+dest_files=[ "res://.import/GoldExpEffect.mp3-c918a01721f5f486339bddf630fc5e7a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

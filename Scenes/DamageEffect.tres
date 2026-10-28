@@ -1,0 +1,36 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float hit_opacity : hint_range(0.0, 1.0) = 0.5;
+
+varying vec4 modulate;
+
+//render_mode unshaded;
+
+//void vertex() {
+//	modulate = COLOR;
+//}
+
+//float circle_mask(vec2 uv, vec2 center, float radius) {
+//	float d = distance(uv, center);
+//	return 1.0 - smoothstep(radius * 0.6, radius, d);
+//}
+//shader_type canvas_item;
+//render_mode unshaded;
+
+void fragment() {
+	vec4 original_color = texture(TEXTURE, UV);
+	vec4 white_color = vec4(1.0, 1.0, 1.0, original_color.a);
+	vec4 final_color = mix(original_color, white_color, hit_opacity);
+
+
+
+    COLOR = final_color;
+		
+
+	
+}
+
+"

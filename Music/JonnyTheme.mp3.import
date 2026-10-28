@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/JonnyTheme.mp3-2f1a8ebdb1b88481d05064a33c0ab045.mp3str"
+
+[deps]
+
+source_file="res://Music/JonnyTheme.mp3"
+dest_files=[ "res://.import/JonnyTheme.mp3-2f1a8ebdb1b88481d05064a33c0ab045.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

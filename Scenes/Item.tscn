@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Textures/Items-sheet.png" type="Texture" id=1]
+[ext_resource path="res://Textures/ShadowItem.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Item.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 3.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 0 ), Vector2( 0, 5 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=3]
+
+[node name="Item" type="StaticBody2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 15
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Idle = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0.375001, 20 )
+scale = Vector2( 0.9375, 1 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="ArrowHitbox" type="Area2D" parent="." groups=["ArrowHitBox"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowHitbox"]
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="ArrowHitbox" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="ArrowHitbox" to="." method="_on_Area2D_body_entered"]

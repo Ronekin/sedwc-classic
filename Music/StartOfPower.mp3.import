@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StartOfPower.mp3-c367a2476eca9bbddc3810dec22b0b8e.mp3str"
+
+[deps]
+
+source_file="res://Music/StartOfPower.mp3"
+dest_files=[ "res://.import/StartOfPower.mp3-c367a2476eca9bbddc3810dec22b0b8e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

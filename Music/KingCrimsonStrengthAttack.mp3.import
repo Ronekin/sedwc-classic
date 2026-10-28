@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KingCrimsonStrengthAttack.mp3-ea0182dd9d62eaec0480a1c4f3a09765.mp3str"
+
+[deps]
+
+source_file="res://Music/KingCrimsonStrengthAttack.mp3"
+dest_files=[ "res://.import/KingCrimsonStrengthAttack.mp3-ea0182dd9d62eaec0480a1c4f3a09765.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

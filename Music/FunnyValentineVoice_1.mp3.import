@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FunnyValentineVoice_1.mp3-505456b20b08ce4e52d03f33949fc0d9.mp3str"
+
+[deps]
+
+source_file="res://Music/FunnyValentineVoice_1.mp3"
+dest_files=[ "res://.import/FunnyValentineVoice_1.mp3-505456b20b08ce4e52d03f33949fc0d9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

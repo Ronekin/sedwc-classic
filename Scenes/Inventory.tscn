@@ -1,0 +1,1143 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Textures/Inventory_Background.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Inventory_Slot.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Inventory_Player_Menu.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/InventContainer.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Slot.gd" type="Script" id=5]
+[ext_resource path="res://Textures/personage_panel.png" type="Texture" id=6]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scripts/ProfilePage.gd" type="Script" id=8]
+[ext_resource path="res://Textures/ArrowButtonPressed.png" type="Texture" id=9]
+[ext_resource path="res://Textures/ArrowButton.png" type="Texture" id=10]
+[ext_resource path="res://Textures/PanelInventory.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/StandText.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/TechText.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/RaceText.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/ExpPlayerBar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Textures/InventoryButton.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/HpPlayerBar.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Textures/ComingSoonPanel.png" type="Texture" id=18]
+[ext_resource path="res://Textures/StandSlotPanelGeneral.png" type="Texture" id=19]
+[ext_resource path="res://Textures/inventory_panel.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/InventorySystem.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/NameNick.gd" type="Script" id=22]
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "ItemInfoShow"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ItemInfo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ItemInfo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ItemInfo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="PlayerMenu" type="Node2D"]
+position = Vector2( -202, -139 )
+script = ExtResource( 21 )
+
+[node name="Inventory" type="TouchScreenButton" parent="."]
+position = Vector2( 3, 0 )
+scale = Vector2( 1.4, 1 )
+normal = ExtResource( 20 )
+
+[node name="Name" type="Label" parent="Inventory"]
+margin_left = 25.0
+margin_top = 4.0
+margin_right = 97.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.8, 1.1 )
+custom_fonts/font = SubResource( 2 )
+text = "инвентарь"
+align = 1
+
+[node name="Profile" type="TouchScreenButton" parent="."]
+position = Vector2( 278, 0 )
+scale = Vector2( 1.5, 1 )
+normal = ExtResource( 20 )
+
+[node name="Name" type="Label" parent="Profile"]
+margin_left = -12.6667
+margin_top = 4.0
+margin_right = 159.333
+margin_bottom = 19.0
+rect_scale = Vector2( 0.8, 1.1 )
+custom_fonts/font = SubResource( 2 )
+text = "профиль"
+align = 1
+
+[node name="InventBackground" type="TextureRect" parent="."]
+margin_left = -2.0
+margin_right = 444.0
+margin_bottom = 250.0
+texture = ExtResource( 1 )
+
+[node name="InventoryPage" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="InventoryDopInformation" type="Control" parent="InventoryPage"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="DopInformationBG" type="TextureRect" parent="InventoryPage/InventoryDopInformation"]
+visible = false
+margin_left = 10.0
+margin_top = 30.0
+margin_right = 158.0
+margin_bottom = 236.0
+rect_pivot_offset = Vector2( -172, 22 )
+texture = ExtResource( 3 )
+
+[node name="ItemName" type="Label" parent="InventoryPage/InventoryDopInformation/DopInformationBG"]
+margin_left = 3.0
+margin_right = 147.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 3 )
+text = "ЗАГАДОЧНАЯ СТРЕЛА"
+align = 1
+valign = 2
+
+[node name="Description" type="Label" parent="InventoryPage/InventoryDopInformation/DopInformationBG"]
+margin_left = 4.0
+margin_top = 22.0
+margin_right = 183.0
+margin_bottom = 149.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 3 )
+text = "могущественный артефакт, если проткнуть себя им вы обретёте силу стэнда"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="chances" type="Label" parent="InventoryPage/InventoryDopInformation/DopInformationBG"]
+margin_left = 2.0
+margin_top = 128.0
+margin_right = 181.0
+margin_bottom = 225.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 3 )
+text = "5% шанс спавна на земле
+10% шанс на выпадение с обычной карточки"
+align = 1
+autowrap = true
+
+[node name="InventContainer" type="GridContainer" parent="InventoryPage"]
+margin_left = 22.0
+margin_top = 28.0
+margin_right = 427.0
+margin_bottom = 241.0
+custom_constants/vseparation = 3
+custom_constants/hseparation = 3
+columns = 12
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Slot1" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_right = 31.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot2" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 34.0
+margin_right = 65.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot3" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 68.0
+margin_right = 99.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot4" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 102.0
+margin_right = 133.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot5" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 136.0
+margin_right = 167.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot6" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 170.0
+margin_right = 201.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot7" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 204.0
+margin_right = 235.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot8" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 238.0
+margin_right = 269.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot9" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 272.0
+margin_right = 303.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot10" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 306.0
+margin_right = 337.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot11" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 340.0
+margin_right = 371.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot12" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 374.0
+margin_right = 405.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot13" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_top = 35.0
+margin_right = 31.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot14" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 34.0
+margin_top = 35.0
+margin_right = 65.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot15" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 68.0
+margin_top = 35.0
+margin_right = 99.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot16" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 102.0
+margin_top = 35.0
+margin_right = 133.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot17" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 136.0
+margin_top = 35.0
+margin_right = 167.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot18" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 170.0
+margin_top = 35.0
+margin_right = 201.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot19" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 204.0
+margin_top = 35.0
+margin_right = 235.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot20" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 238.0
+margin_top = 35.0
+margin_right = 269.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot21" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 272.0
+margin_top = 35.0
+margin_right = 303.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot22" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 306.0
+margin_top = 35.0
+margin_right = 337.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot23" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 340.0
+margin_top = 35.0
+margin_right = 371.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot24" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 374.0
+margin_top = 35.0
+margin_right = 405.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot25" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_top = 70.0
+margin_right = 31.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot26" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 34.0
+margin_top = 70.0
+margin_right = 65.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot27" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 68.0
+margin_top = 70.0
+margin_right = 99.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot28" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 102.0
+margin_top = 70.0
+margin_right = 133.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot29" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 136.0
+margin_top = 70.0
+margin_right = 167.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot30" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 170.0
+margin_top = 70.0
+margin_right = 201.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot31" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 204.0
+margin_top = 70.0
+margin_right = 235.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot32" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 238.0
+margin_top = 70.0
+margin_right = 269.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot33" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 272.0
+margin_top = 70.0
+margin_right = 303.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot34" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 306.0
+margin_top = 70.0
+margin_right = 337.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot35" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 340.0
+margin_top = 70.0
+margin_right = 371.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot36" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 374.0
+margin_top = 70.0
+margin_right = 405.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot37" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_top = 105.0
+margin_right = 31.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot38" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 34.0
+margin_top = 105.0
+margin_right = 65.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot39" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 68.0
+margin_top = 105.0
+margin_right = 99.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot40" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 102.0
+margin_top = 105.0
+margin_right = 133.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot41" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 136.0
+margin_top = 105.0
+margin_right = 167.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot42" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 170.0
+margin_top = 105.0
+margin_right = 201.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot43" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 204.0
+margin_top = 105.0
+margin_right = 235.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot44" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 238.0
+margin_top = 105.0
+margin_right = 269.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot45" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 272.0
+margin_top = 105.0
+margin_right = 303.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot46" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 306.0
+margin_top = 105.0
+margin_right = 337.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot47" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 340.0
+margin_top = 105.0
+margin_right = 371.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot48" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 374.0
+margin_top = 105.0
+margin_right = 405.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot49" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_top = 140.0
+margin_right = 31.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot50" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 34.0
+margin_top = 140.0
+margin_right = 65.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot51" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 68.0
+margin_top = 140.0
+margin_right = 99.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot52" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 102.0
+margin_top = 140.0
+margin_right = 133.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot53" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 136.0
+margin_top = 140.0
+margin_right = 167.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot54" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 170.0
+margin_top = 140.0
+margin_right = 201.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot55" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 204.0
+margin_top = 140.0
+margin_right = 235.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot56" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 238.0
+margin_top = 140.0
+margin_right = 269.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot57" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 272.0
+margin_top = 140.0
+margin_right = 303.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot58" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 306.0
+margin_top = 140.0
+margin_right = 337.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot59" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 340.0
+margin_top = 140.0
+margin_right = 371.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot60" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 374.0
+margin_top = 140.0
+margin_right = 405.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot61" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_top = 175.0
+margin_right = 31.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot62" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 34.0
+margin_top = 175.0
+margin_right = 65.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot63" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 68.0
+margin_top = 175.0
+margin_right = 99.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot64" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 102.0
+margin_top = 175.0
+margin_right = 133.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot65" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 136.0
+margin_top = 175.0
+margin_right = 167.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot66" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 170.0
+margin_top = 175.0
+margin_right = 201.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot67" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 204.0
+margin_top = 175.0
+margin_right = 235.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot68" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 238.0
+margin_top = 175.0
+margin_right = 269.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot69" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 272.0
+margin_top = 175.0
+margin_right = 303.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot70" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 306.0
+margin_top = 175.0
+margin_right = 337.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot71" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 340.0
+margin_top = 175.0
+margin_right = 371.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Slot72" type="TextureButton" parent="InventoryPage/InventContainer"]
+margin_left = 374.0
+margin_top = 175.0
+margin_right = 405.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 31, 32 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="ProfilePage" type="Control" parent="."]
+margin_left = 142.0
+margin_top = -1.0
+margin_right = 182.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( -70, 109 )
+script = ExtResource( 8 )
+
+[node name="PlayerMenu" type="Sprite" parent="ProfilePage"]
+position = Vector2( -59, 131 )
+texture = ExtResource( 3 )
+
+[node name="StandSlots" type="TouchScreenButton" parent="ProfilePage"]
+position = Vector2( -121, 52 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 16 )
+
+[node name="Name" type="Label" parent="ProfilePage/StandSlots"]
+margin_left = 9.0
+margin_top = 5.0
+margin_right = 145.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "хранилище стендов"
+align = 1
+
+[node name="MapButton" type="TouchScreenButton" parent="ProfilePage"]
+position = Vector2( 17, 204 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 16 )
+
+[node name="Name" type="Label" parent="ProfilePage/MapButton"]
+margin_left = 9.0
+margin_top = 5.0
+margin_right = 145.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "карта"
+align = 1
+
+[node name="AchievButton" type="TouchScreenButton" parent="ProfilePage"]
+position = Vector2( 17, 182 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 16 )
+
+[node name="Name" type="Label" parent="ProfilePage/AchievButton"]
+margin_left = 9.0
+margin_top = 5.0
+margin_right = 145.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "достижения"
+align = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ProfilePage"]
+
+[node name="PersonagePanel" type="Sprite" parent="ProfilePage/TouchScreenButton"]
+position = Vector2( 239, 35 )
+
+[node name="PageName" type="Label" parent="ProfilePage/TouchScreenButton/PersonagePanel"]
+visible = false
+margin_left = -40.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 2 )
+text = "прочее"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NamePanel" type="Sprite" parent="ProfilePage/TouchScreenButton/PersonagePanel"]
+position = Vector2( -298, 4 )
+scale = Vector2( 0.960526, 0.852632 )
+texture = ExtResource( 11 )
+
+[node name="NameStand" type="Label" parent="ProfilePage/TouchScreenButton/PersonagePanel/NamePanel"]
+anchor_left = -0.230263
+anchor_right = 0.282895
+margin_left = -40.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 2 )
+text = "The World"
+align = 1
+valign = 1
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NameTechnic" type="Label" parent="ProfilePage/TouchScreenButton/PersonagePanel/NamePanel"]
+visible = false
+anchor_left = -0.217105
+anchor_right = 0.269737
+margin_left = -40.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 2 )
+text = "The World"
+align = 1
+valign = 1
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NameRace" type="Label" parent="ProfilePage/TouchScreenButton/PersonagePanel/NamePanel"]
+visible = false
+anchor_left = -0.217105
+anchor_right = 0.276316
+margin_left = -40.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 2 )
+text = "The World"
+align = 1
+valign = 1
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NameNick" type="Label" parent="ProfilePage/TouchScreenButton/PersonagePanel/NamePanel"]
+visible = false
+anchor_left = -0.217105
+anchor_right = 0.276316
+margin_left = -40.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 2 )
+text = "The World"
+align = 1
+valign = 1
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PersonagePanel" type="Sprite" parent="ProfilePage"]
+position = Vector2( -59, 172 )
+texture = ExtResource( 6 )
+
+[node name="Name" type="Label" parent="ProfilePage/PersonagePanel"]
+margin_left = -69.0
+margin_top = -8.0
+margin_right = 67.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 2 )
+text = "stand"
+align = 1
+
+[node name="Pre" type="TouchScreenButton" parent="ProfilePage"]
+position = Vector2( -128, 187 )
+scale = Vector2( 0.75, 0.75 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 9 )
+
+[node name="Next" type="TouchScreenButton" parent="ProfilePage"]
+position = Vector2( 10, 209 )
+rotation = 3.14159
+scale = Vector2( 0.75, 0.75 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 9 )
+
+[node name="TextureProgress" parent="ProfilePage" instance=ExtResource( 17 )]
+margin_left = 141.0
+margin_top = 30.0
+margin_right = 293.0
+margin_bottom = 49.0
+
+[node name="TextureProgress2" parent="ProfilePage" instance=ExtResource( 15 )]
+margin_left = 141.0
+margin_top = 52.0
+margin_right = 293.0
+margin_bottom = 71.0
+
+[node name="SkillPoints" type="Label" parent="ProfilePage"]
+margin_left = 120.0
+margin_top = 74.0
+margin_right = 293.0
+margin_bottom = 118.0
+custom_fonts/font = SubResource( 2 )
+text = "skill points: 999"
+align = 2
+
+[node name="Stats" type="Label" parent="ProfilePage"]
+margin_left = 137.0
+margin_top = 91.0
+margin_right = 310.0
+margin_bottom = 163.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_fonts/font = SubResource( 2 )
+text = "234234234
+3423
+-234
++9hp
+44-4-4-4-%%%w"
+align = 2
+
+[node name="OtherStats" type="Label" parent="ProfilePage"]
+margin_left = 19.0
+margin_top = 131.0
+margin_right = 187.0
+margin_bottom = 184.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_fonts/font = SubResource( 2 )
+text = "в игре: 560 мин"
+valign = 2
+
+[node name="Helping" type="Label" parent="ProfilePage"]
+modulate = Color( 0.905882, 0.792157, 0.392157, 1 )
+margin_left = -80.0
+margin_top = 228.0
+margin_right = 216.0
+margin_bottom = 300.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_fonts/font = SubResource( 2 )
+text = "lvl up = +1 skill point"
+align = 2
+
+[node name="ProfilePage111" type="Control" parent="."]
+visible = false
+margin_left = 138.0
+margin_right = 178.0
+margin_bottom = 40.0
+
+[node name="PlayerMenu" type="Sprite" parent="ProfilePage111"]
+visible = false
+position = Vector2( 76, 131 )
+texture = ExtResource( 3 )
+
+[node name="TextureProgress" parent="ProfilePage111" instance=ExtResource( 17 )]
+margin_left = -130.0
+margin_top = 31.0
+margin_right = 22.0
+margin_bottom = 50.0
+rect_scale = Vector2( 1.2, 1.2 )
+
+[node name="TextureProgress2" parent="ProfilePage111" instance=ExtResource( 15 )]
+margin_left = -130.0
+margin_top = 59.0
+margin_right = 22.0
+margin_bottom = 78.0
+rect_scale = Vector2( 1.2, 1.2 )
+
+[node name="SkillPoints" type="Label" parent="ProfilePage111"]
+margin_left = -127.0
+margin_top = 88.0
+margin_right = 91.0
+margin_bottom = 103.0
+custom_fonts/font = SubResource( 2 )
+text = "Skill points: 999"
+
+[node name="Stats" type="Label" parent="ProfilePage111"]
+margin_left = 72.0
+margin_top = 32.0
+margin_right = 290.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 2 )
+text = "MoveSpeed х1.5
+regen х1.7"
+
+[node name="SkillPoints2" type="Label" parent="ProfilePage111"]
+margin_left = -131.0
+margin_top = 224.0
+margin_right = 269.0
+margin_bottom = 239.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_fonts/font = SubResource( 2 )
+text = "вы получаете +1 skill point за каждый поднятый лвл"
+
+[node name="Map" type="TouchScreenButton" parent="ProfilePage111"]
+position = Vector2( 146, 197 )
+normal = ExtResource( 16 )
+
+[node name="Name" type="Label" parent="ProfilePage111/Map"]
+margin_left = 9.0
+margin_top = 5.0
+margin_right = 145.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "карта"
+align = 1
+
+[node name="ItemInfo" type="Control" parent="."]
+visible = false
+margin_left = 187.0
+margin_top = -33.0
+margin_right = 227.0
+margin_bottom = 7.0
+
+[node name="BG" type="Sprite" parent="ItemInfo"]
+visible = false
+position = Vector2( 26, 134 )
+scale = Vector2( 0.72, 0.72 )
+texture = ExtResource( 18 )
+
+[node name="StandSlotPanelGeneral" type="Sprite" parent="ItemInfo"]
+position = Vector2( 39, 34.4348 )
+scale = Vector2( 0.730769, 0.720226 )
+texture = ExtResource( 19 )
+
+[node name="Name" type="Label" parent="ItemInfo"]
+margin_left = -11.0
+margin_top = 16.0
+margin_right = 110.0
+margin_bottom = 66.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 2 )
+text = "чертёж ядерного реактора"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ItemInfoShow = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[connection signal="pressed" from="Inventory" to="." method="_on_Inventory_pressed"]
+[connection signal="pressed" from="Profile" to="." method="StandPressed"]
+[connection signal="pressed" from="ProfilePage/StandSlots" to="ProfilePage" method="_on_StandSlots_pressed"]
+[connection signal="pressed" from="ProfilePage/MapButton" to="ProfilePage" method="_on_Map_pressed"]
+[connection signal="pressed" from="ProfilePage/AchievButton" to="ProfilePage" method="AchievButton_Pressed"]
+[connection signal="pressed" from="ProfilePage/Pre" to="ProfilePage" method="_on_Pre_pressed"]
+[connection signal="pressed" from="ProfilePage/Next" to="ProfilePage" method="_on_Next_pressed"]
+[connection signal="pressed" from="ProfilePage111/Map" to="." method="MapPressed"]

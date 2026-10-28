@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/UIdada.mp3-0c5d1e81fa3abdf810945d240c8c42d0.mp3str"
+
+[deps]
+
+source_file="res://Music/UIdada.mp3"
+dest_files=[ "res://.import/UIdada.mp3-0c5d1e81fa3abdf810945d240c8c42d0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

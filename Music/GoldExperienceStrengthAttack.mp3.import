@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GoldExperienceStrengthAttack.mp3-2b642b52f7fbc6b32fc008eb9a9eb3cd.mp3str"
+
+[deps]
+
+source_file="res://Music/GoldExperienceStrengthAttack.mp3"
+dest_files=[ "res://.import/GoldExperienceStrengthAttack.mp3-2b642b52f7fbc6b32fc008eb9a9eb3cd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GoldExperienceSummon.mp3-35019dd9b863bc9b3f6a0d9dc3e8557d.mp3str"
+
+[deps]
+
+source_file="res://Music/GoldExperienceSummon.mp3"
+dest_files=[ "res://.import/GoldExperienceSummon.mp3-35019dd9b863bc9b3f6a0d9dc3e8557d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

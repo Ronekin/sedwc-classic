@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CentrifugeWork.mp3-ea86c3d67983983e8e4cf05c4100f69d.mp3str"
+
+[deps]
+
+source_file="res://Music/CentrifugeWork.mp3"
+dest_files=[ "res://.import/CentrifugeWork.mp3-ea86c3d67983983e8e4cf05c4100f69d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

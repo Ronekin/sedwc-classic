@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WalkRoadOrBeton.mp3-8e1b0493296266ce3a103afc0c06031f.mp3str"
+
+[deps]
+
+source_file="res://Music/WalkRoadOrBeton.mp3"
+dest_files=[ "res://.import/WalkRoadOrBeton.mp3-8e1b0493296266ce3a103afc0c06031f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GERsoundEffect.mp3-58c1eb7afa593ab269f8d82598ead6a1.mp3str"
+
+[deps]
+
+source_file="res://Music/GERsoundEffect.mp3"
+dest_files=[ "res://.import/GERsoundEffect.mp3-58c1eb7afa593ab269f8d82598ead6a1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

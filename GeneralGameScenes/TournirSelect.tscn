@@ -1,0 +1,380 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Textures/TrebovaniaPanel.png" type="Texture" id=1]
+[ext_resource path="res://Animations/Fonts/anothercastle31.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/PanelEnemyTournir.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/PanelCharacterTournir.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Textures/Details/Sky.png" type="Texture" id=5]
+[ext_resource path="res://GeneralGameScenes/ParallaxBackground2.gd" type="Script" id=6]
+[ext_resource path="res://GeneralGameScenes/TournirSelect.gd" type="Script" id=7]
+[ext_resource path="res://Textures/GeneralMenuPanel.png" type="Texture" id=8]
+[ext_resource path="res://Textures/PanelInventory.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/TournirStage.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Textures/Podrobnosti_Del.png" type="Texture" id=11]
+[ext_resource path="res://Textures/Enemys/JotaroPart6.png" type="Texture" id=12]
+[ext_resource path="res://Details/EmptyScroll.tres" type="Theme" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "FloorHide"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 2, -2.14355 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -400 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../PanelEnemyTournir:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.233258, 0.5 ),
+"update": 0,
+"values": [ Vector2( -576, 34 ), Vector2( -153, 34 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../PanelCharacterTournir:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.233258, 0.5 ),
+"update": 0,
+"values": [ Vector2( 699, 34 ), Vector2( 116.2, 34 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "FloorShow"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( -2.14355, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -400 ), Vector2( 0, -400 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../PanelEnemyTournir:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( -153, 34 ), Vector2( -120, 34 ), Vector2( -576, 34 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../PanelCharacterTournir:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 116.2, 34 ), Vector2( 80, 34 ), Vector2( 699, 34 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Show"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 5.46416, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 75, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="TournirSelect" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Control2" type="Node2D" parent="."]
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Control2"]
+
+[node name="ParallaxBackground" type="ParallaxLayer" parent="Control2/ParallaxBackground2"]
+motion_mirroring = Vector2( 660, 0 )
+
+[node name="Sky" type="Sprite" parent="Control2/ParallaxBackground2/ParallaxBackground"]
+modulate = Color( 0.454902, 0.454902, 0.454902, 1 )
+position = Vector2( 661, 185 )
+scale = Vector2( 0.902313, 0.9 )
+texture = ExtResource( 5 )
+
+[node name="Sky2" type="Sprite" parent="Control2/ParallaxBackground2/ParallaxBackground"]
+modulate = Color( 0.454902, 0.454902, 0.454902, 1 )
+position = Vector2( -2, 185 )
+scale = Vector2( 0.902313, 0.9 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxBackground2" type="ParallaxLayer" parent="Control2/ParallaxBackground2"]
+visible = false
+motion_offset = Vector2( 1233, 0 )
+motion_mirroring = Vector2( 660, 0 )
+
+[node name="Sky" type="Sprite" parent="Control2/ParallaxBackground2/ParallaxBackground2"]
+position = Vector2( 323, 171 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="Control2"]
+position = Vector2( 319, 178 )
+current = true
+script = ExtResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( -60, 68 )
+
+[node name="Titul" type="Label" parent="CanvasLayer/Control"]
+margin_left = -231.0
+margin_top = -158.0
+margin_right = 33.0
+margin_bottom = -146.0
+rect_scale = Vector2( 1.8, 1.8 )
+custom_fonts/font = SubResource( 1 )
+text = "гладиаторский турнир"
+align = 1
+valign = 1
+
+[node name="PanelEnemyTournir" parent="CanvasLayer/Control" instance=ExtResource( 3 )]
+margin_left = -576.0
+margin_top = 34.0
+margin_right = -576.0
+margin_bottom = 34.0
+rect_scale = Vector2( 1.2, 1.2 )
+
+[node name="PanelCharacterTournir" parent="CanvasLayer/Control" instance=ExtResource( 4 )]
+margin_left = 699.0
+margin_top = 34.0
+margin_right = 699.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.475, 0.475 )
+
+[node name="AllStages" type="TouchScreenButton" parent="CanvasLayer/Control/PanelCharacterTournir"]
+position = Vector2( 296.421, -227.368 )
+scale = Vector2( 1.23269, 2.73684 )
+normal = ExtResource( 9 )
+
+[node name="Name" type="Label" parent="CanvasLayer/Control/PanelCharacterTournir/AllStages"]
+margin_left = -8.53937
+margin_top = 2.3077
+margin_right = 85.4606
+margin_bottom = 15.3077
+rect_scale = Vector2( 1.8, 0.95 )
+custom_fonts/font = SubResource( 3 )
+text = "все этапы"
+align = 1
+valign = 1
+
+[node name="Floors" type="Control" parent="CanvasLayer/Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="GeneralMenuPanel" type="Sprite" parent="CanvasLayer/Control/Floors"]
+position = Vector2( 0.000518799, 24 )
+rotation = 1.5708
+scale = Vector2( 0.8, 1.4 )
+texture = ExtResource( 8 )
+
+[node name="your_hp" type="Label" parent="CanvasLayer/Control/Floors"]
+margin_left = -145.999
+margin_top = -135.0
+margin_right = 51.0005
+margin_bottom = -93.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 2 )
+text = "доступные этапы"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Floors"]
+autoplay = "FloorHide"
+anims/FloorHide = SubResource( 5 )
+anims/FloorShow = SubResource( 4 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/Floors"]
+margin_left = -249.0
+margin_top = -87.0
+margin_right = 366.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.93, 0.93 )
+theme = ExtResource( 13 )
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/Floors/ScrollContainer"]
+margin_right = 495.0
+margin_bottom = 67.0
+custom_constants/vseparation = 67
+custom_constants/hseparation = 55
+columns = 10
+
+[node name="TournirStage" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+
+[node name="TournirStage2" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 55.0
+margin_right = 55.0
+
+[node name="TournirStage3" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 110.0
+margin_right = 110.0
+
+[node name="TournirStage4" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 165.0
+margin_right = 165.0
+
+[node name="TournirStage5" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 220.0
+margin_right = 220.0
+
+[node name="TournirStage6" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 275.0
+margin_right = 275.0
+
+[node name="TournirStage7" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 330.0
+margin_right = 330.0
+
+[node name="TournirStage8" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 385.0
+margin_right = 385.0
+
+[node name="TournirStage9" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 440.0
+margin_right = 440.0
+
+[node name="TournirStage10" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 495.0
+margin_right = 495.0
+
+[node name="TournirStage11" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_top = 67.0
+margin_bottom = 67.0
+
+[node name="TournirStage12" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 55.0
+margin_top = 67.0
+margin_right = 55.0
+margin_bottom = 67.0
+
+[node name="TournirStage13" parent="CanvasLayer/Control/Floors/ScrollContainer/GridContainer" instance=ExtResource( 10 )]
+margin_left = 110.0
+margin_top = 67.0
+margin_right = 110.0
+margin_bottom = 67.0
+
+[node name="FloorExit" type="TouchScreenButton" parent="CanvasLayer/Control/Floors"]
+position = Vector2( 241, -122 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 11 )
+
+[node name="EnemyFastInfo" type="Control" parent="CanvasLayer/Control/Floors"]
+margin_left = -145.0
+margin_top = -23.0
+margin_right = -105.0
+margin_bottom = 17.0
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Control/Floors/EnemyFastInfo"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 75, 0 )
+
+[node name="TrebovaniaPanel" type="Sprite" parent="CanvasLayer/Control/Floors/EnemyFastInfo/Node2D"]
+position = Vector2( 50.4309, 79.2214 )
+scale = Vector2( 0.577682, 0.719814 )
+texture = ExtResource( 1 )
+
+[node name="EnemyTexture" type="Sprite" parent="CanvasLayer/Control/Floors/EnemyFastInfo/Node2D"]
+position = Vector2( 48, 52 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 12 )
+hframes = 8
+
+[node name="Name" type="Label" parent="CanvasLayer/Control/Floors/EnemyFastInfo/Node2D"]
+margin_left = -8.0
+margin_top = 93.0
+margin_right = 155.0
+margin_bottom = 159.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 3 )
+text = "ист. джотаро
+hp 160"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Floors/EnemyFastInfo"]
+anims/Show = SubResource( 6 )
+
+[connection signal="pressed" from="CanvasLayer/Control/PanelCharacterTournir/AllStages" to="." method="AllStages_Pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Floors/FloorExit" to="." method="FloorExit_Pressed"]

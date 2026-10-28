@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShtroyhamVoice_0.mp3-accae1006cb69c768c0e4f6d28dfca6c.mp3str"
+
+[deps]
+
+source_file="res://Music/ShtroyhamVoice_0.mp3"
+dest_files=[ "res://.import/ShtroyhamVoice_0.mp3-accae1006cb69c768c0e4f6d28dfca6c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
