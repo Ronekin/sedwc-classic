@@ -123,6 +123,7 @@ func _ready():
 	navigation_node = navigation
 	player_node = _find_player_node()
 	start_position = global_position
+	position_first = global_position
 	# Все таймеры врага должны быть детьми врага. Иначе Timer.new() без
 	# add_child() переживёт смерть врага и останется в ObjectDB.
 	for local_timer in [attack_timer, dash_timer, timer_knifes, kooldown_timer, timer, enemy_block_timer]:
@@ -257,16 +258,14 @@ func generate_path_left():
 
 
 func position_back():
-	var sprite_node = get_node_or_null("Sprite")
-	var reference = sprite_node if sprite_node != null else self
-	var add_position = position_first - reference.global_position
-	global_position -= add_position
-	if sprite_node != null:
-		sprite_node.global_position += add_position
-	for node_name in ["Area2D", "AttackBox", "CollisionShape2D"]:
-		var node = get_node_or_null(node_name)
-		if node != null:
-			node.global_position += add_position
+	# position_first хранит начальную позицию корня врага (устанавливается в _ready).
+	# Дочерние узлы (Sprite, Area2D, CollisionShape2D, AttackBox) перемещаются
+	# автоматически вместе с корневым узлом — явно сдвигать их не нужно.
+	# Ранее код делал global_position -= add_position (обратное направление) и
+	# затем sprite_node.global_position += add_position, отменяя перемещение.
+	# Из-за этого спрайт оставался на старой позиции, а тело коллизии уходило
+	# в сторону: враг визуально "пропадал" (баг видимости).
+	global_position = position_first
 
 
 func povorot_reset():
@@ -466,7 +465,12 @@ func _on_FightAnimations_animation_finished(anim_name):
 
 func _on_Ghost_Effect_timeout():
 	if General.time_erase == false:
-		if dashed and not attacked and animation_enemy.current_animation == "BigDashEnemyBack" or animation_enemy.current_animation == "BigDashEnemyVert":
+		if animation_enemy == null:
+			return
+		# Скобки вокруг or-условия: без них `or` имеет более низкий приоритет,
+		# чем `and`, и эффекты-призраки спавнились бы для BigDashEnemyVert
+		# даже без режима рывка (баг видимости).
+		if dashed and not attacked and (animation_enemy.current_animation == "BigDashEnemyBack" or animation_enemy.current_animation == "BigDashEnemyVert"):
 			var effect = preload("res://Scenes/DashGhostEffectEnemy.tscn").instance()
 			get_parent().add_child(effect)
 			effect.position = global_position
